@@ -132,9 +132,17 @@ class ClubSectionController extends Controller
 
     public function deleteClubCat($id)
     {
-        $delete_club_cat = ClubCategory::find($id);
-        $delete_club_cat->deleted = 1;
-        $delete_club_cat->save();
+        $check_section_cat_id_exist = ClubSection::where('club_category_id', $id)->first();
+
+        if($check_section_cat_id_exist != Null){
+           
+            return back()->with('error', 'You cannot delete this category, it is already in use!');
+        }
+            $delete_club_cat = ClubCategory::find($id);
+            // return $delete_club_cat;
+            // $delete_club_cat->deleted = 1;
+            $delete_club_cat->delete();
+       
 
         return back()->with('success', 'Club Category deleted');
     }
@@ -142,8 +150,8 @@ class ClubSectionController extends Controller
     public function deleteClubSection($id)
     {
        $deleteClub = ClubSection::find($id);
-       $deleteClub->deleted = 1;
-       $deleteClub->save();
+    //    $deleteClub->deleted = 1;
+       $deleteClub->delete();
 
        return back()->with('success', 'Club Secttion deleted');
        

@@ -45,6 +45,7 @@
                       <tr>
                         <th>S/N</th>
                         <th>Title</th>                        
+                        <th>Image</th>                        
                         <th>Date Published</th>
                         <th colspan="2" class="text-center">Action</th>
                       </tr>
@@ -54,6 +55,7 @@
                             <tr>
                                 <td>{{$loop->index +1}}</td>
                                 <td><a href="#">{{$blogpost->title}}</a></td>
+                                <td><img src="{{asset('storage/'.$blogpost->featured_image)}}" width="70" class="thumbnail"></td>
                                 <td>{{$blogpost->created_at}}</td>
                                 <td>
                                     <form action="#" method="post">
@@ -62,7 +64,8 @@
                                 </td>
                                 
                                 <td>
-                                    <form action="#" method="post">
+                                    <form action="{{route('del.blog', ['id' => $blogpost->id])}}" method="post">
+                                      @csrf
                                         <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete!')"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>

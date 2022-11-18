@@ -143,7 +143,14 @@ class ServiceController extends Controller
 
     public function deleteServiceCategory($id)
     {
+        $checkIfCatExistInService = Service::where('service_cat_id', $id)->first();
+        if($checkIfCatExistInService != Null){
+
+            return back()->with('error', 'Service Category is already in used and cannot be deleted!');
+        }
         $deleteServiceCategory = ServiceCategory::find($id);
+
+        // return $deleteServiceCategory;
         $deleteServiceCategory->delete();
 
         return back()->with('success', 'Service Category deleted successfully!');

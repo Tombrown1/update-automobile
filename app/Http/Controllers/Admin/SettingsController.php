@@ -52,6 +52,7 @@ class SettingsController extends Controller
         'about' => 'required|string',
         'vision' => 'required|string',
         'mission' => 'required|string',
+        'core_value' => 'required|string',
        ]); 
 
       //  return $request;
@@ -59,6 +60,7 @@ class SettingsController extends Controller
        $aboutsetting->about = $request->about;
        $aboutsetting->vision = $request->vision;
        $aboutsetting->mission = $request->mission;
+       $aboutsetting->core_value = $request->core_value;
 
        $aboutsetting->save();
 

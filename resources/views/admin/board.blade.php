@@ -45,7 +45,7 @@
                   </div>
                  </form>
                  <div class="col">
-                     <button class="btn btn-success btn-xs " data-toggle="modal" data-target="#addSession">Add Board Form<i class="fa fa-plus fa-fw"></i></button> 
+                     <button class="btn btn-success btn-xs " data-toggle="modal" data-target="#addSession">Add Management<i class="fa fa-plus fa-fw"></i></button> 
                  </div>
               </div>
               <h4>Management Team  </h4>             
@@ -54,7 +54,7 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="addCourseLabel">Add Board</h5>
+                      <h5 class="modal-title" id="addCourseLabel">Add Management</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>

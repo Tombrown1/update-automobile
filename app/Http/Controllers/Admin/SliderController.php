@@ -49,8 +49,8 @@ class SliderController extends Controller
     {
         // return $id;
         $del_slider = Slider::find($id);
-        $del_slider->deleted = 1;
-        $del_slider->save();
+        // $del_slider->deleted = 1;
+        $del_slider->delete();
         return back()->with('success', 'Slider Image Deleted succcessfully');
     }
 }

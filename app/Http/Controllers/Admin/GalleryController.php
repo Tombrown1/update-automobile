@@ -127,10 +127,14 @@ class GalleryController extends Controller
 
     public function destroyGalleryCat($id)
     {
+        $checkIfCatIdExistInGallery = GalleryPost::where('gallery_cat_id', $id)->first();
+        if($checkIfCatIdExistInGallery != null){
+            return back()->with('error', 'Gallery Category already in use and cannot be deleted');
+        }
         $del_Gallery_Cat = GalleryCategory::find($id);
-        $del_Gallery_Cat->deleted = 1;
+        // return $del_Gallery_Cat;
 
-        $del_Gallery_Cat->save();
+        $del_Gallery_Cat->delete();
         return back()->with('success', 'Gallery Category Deleted Successfully!');
     }
 }

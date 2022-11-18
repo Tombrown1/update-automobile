@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Contact;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -10,7 +11,8 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('site.contact');
+        $setting = Setting::where('deleted', 0)->find(1);
+        return view('site.contact', compact('setting'));
     }
 
     public function displayContact(Request $request)
@@ -51,4 +53,6 @@ class ContactController extends Controller
 
         return back()->with('success', 'Contact Entry Deleted!');
     }
+
+
 }

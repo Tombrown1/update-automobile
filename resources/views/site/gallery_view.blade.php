@@ -1,5 +1,5 @@
 @extends('layouts.web')
-@section('pageTitle', 'News & Events')
+@section('pageTitle', 'View Gallery')
 @section('content')
 
     @section('banner')
@@ -10,7 +10,7 @@
 					<div class="content row">
 					
 						<div class="banner-text">
-							<h1 class="page-title">{{$section->name}}</h1>
+							<h1 class="page-title">{{$gallery->name}}</h1>
 							<p>To ventore veritatis et quasi architecto beatae vitae dicta et quasi architecto beatae vitae dicta.</p>						
 						</div>
 						<div class="page-breadcrumb">
@@ -37,18 +37,18 @@
 			
 				<div class="blog-wrapper row">
 					<div class="col-md-8 res-m-bttm">
-							<h3 class="page-title">{{$section->name}}</h3>
+							<h3 class="page-title">{{$gallery->name}}</h3>
 
 						<div class="post post-single">
 							<div class="post-thumbs">
-								<img alt="" src="{{asset('storage/'.$section->file_path)}}">
+								<img alt="" src="{{asset('storage/'.$gallery->file_path)}}">
 							</div>
 							<div class="post-meta">
-								<span class="pub-date"><em class="fa fa-calendar" aria-hidden="true"></em> {{\Carbon\Carbon::createFromTimeStamp(strtotime($section->created_at))->toFormattedDateString()}} </span>
+								<span class="pub-date"><em class="fa fa-calendar" aria-hidden="true"></em> {{\Carbon\Carbon::createFromTimeStamp(strtotime($gallery->created_at))->toFormattedDateString()}} </span>
 							</div>
 							<div class="post-entry">
-								<h1>{{$section->title}}</h1>
-								<p>{!! nl2br($section->description) !!}</p>
+								<h1>{{$gallery->name}}</h1>
+								<p>{!! nl2br($gallery->description) !!}</p>
 							
 							</div>
 						</div>

@@ -1,39 +1,105 @@
 @extends('layouts.web')
-@section('pageTitle', 'About Club')
+@section('pageTitle',  $about->name)
 @section('content')
 
-    <div class="page-heading header-text mb-5">
-        <div class="container">
-            <div class="row">
-            <div class="col-md-12">
-                <h1>About</h1>
-            </div>
-            </div>
-        </div>
-    </div>
 
-<section class="divider">
-  <div class="container pt-50 pb-70">
-    <div class="row pt-10">
-           @forelse($abouts as $about)
-        <div class="col-md-4 col-sm-6">
-          <!-- feature box -->
-          <div class="feature boxed">
-            <div class="fbox-photo">
-              <img src="{{ asset('storage') }}/{{ $about->image }}" alt="" style="height: 212px; width: 100%">
-            </div>
-            <div class="fbox-content">
-              <a href="{{ route('about') }}/{{ $about->slug }}">
-                <h3>{{ $about->name }}</h3>
-              </a>
-            </div>
-          </div>
-          <!-- End Feature box -->
-        </div>
-      @empty
-      @endforelse 
-    </div>
-  </div>
-</section>
+@section('banner')
+    <!-- Banner/Static -->
+		<div class="banner banner-static">
+			<div class="banner-cpn">
+				<div class="container">
+					<div class="content row">
+					
+						<div class="banner-text">
+							<h1 class="page-title">{{$about->sitename}}</h1>
+							<p>{!!substr(nl2br($about->about),0, 130)!!}.</p>						
+						</div>
+						<div class="page-breadcrumb">
+							<ul class="breadcrumb">
+								<li><a href="{{url('/')}}">Home</a></li>
+								<li class="active"><span>About Us</span></li>
+							</ul>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<div class="banner-bg imagebg">
+				<img src="{{asset('frontend/assets/image/banner-inside-a.jpg')}}" alt="" />
+			</div>
+		</div>
+		<!-- #end Banner/Static -->
+    @endsection
+    <!-- Content -->
+	<div class="section section-contents section-pad">
+		<div class="container">
+		
+			<div class="content row">
+
+				<div class="row">
+					<div class="col-md-8">
+							<h3 class="page-title">{{$about->sitename}}</h3>					
+						<p>{!!nl2br($about->about)!!}.</p>						
+						
+						
+						<h4>Our Vision</h4>
+						<p>{{$about->vision}}</p>
+						<h4>Our Mission</h4>
+						<p>{{$about->vision}}</p>
+						<div class="gaps"></div>
+						
+					
+							<h4>Our Values</h4>
+							<ul>
+								<li>Innovation</li>
+								<li>Excellence</li>
+								<li>Respect</li>
+								<li>Integrity</li>
+								<li>Responsibility</li>
+							</ul>
+				
+						<div class="clear"></div>
+						
+						
+						
+					</div>
+
+					<!-- Sidebar -->
+					<div class="col-md-4">
+						<div class="sidebar-right">
+
+							<div class="wgs-box wgs-menus">
+								<div class="wgs-content">
+									<ul class="list list-grouped">
+										<li class="list-heading">
+											<span>Aba Sports Club Sections</span>
+											<ul>
+												<li><a href="#">Overview</a></li>
+													@foreach($sectioncats as $sectioncat)
+												<!-- <li class="current"><a href="#">Mission &amp; Vision</a></li> -->
+											 <li><a href="{{route('section.view', ['slug' => $sectioncat->slug])}}">{{$sectioncat->club_category->name}}</a></li>
+													<!--<li><a href="#">Management Team</a></li> -->
+													@endforeach
+											</ul>
+										</li>
+										
+									</ul>
+								</div>
+							</div>
+							
+							
+							
+						</div>
+					</div>
+					<!-- Sidebar #end -->
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- End content -->
+@endsection
+
+
 
 @endsection

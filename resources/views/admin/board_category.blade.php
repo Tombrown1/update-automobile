@@ -21,11 +21,17 @@
           </ul>
         </div>
       @endif
+
+      @if(session()->has('error'))
+        <div class="alert alert-danger">
+          {{session()->get('error')}}
+        </div>
+      @endif
     <div class="row">
       <div class="col-md-4">
         <div class="card mt-3">
           <div class="card-header">
-            <h3 class="card-title">Add Board Category</h3>
+            <h3 class="card-title">Add Management Category</h3>
           </div>
 
           <div class="card-body">
@@ -80,9 +86,9 @@
                             <td>{{$boardcat->description}}</td>                             
                            <td>
                             <!-- <form action="{{route('delete.board.cat', ['id' => $boardcat->id])}}" method="post"> -->
-                            <form action="#" method="#">
+                            <form action="{{route('delete.board.cat', ['id' => $boardcat->id])}}" method="post">
                                 @csrf
-                              <button class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete!')"><i class="fa fa-trash"></i></button>
+                              <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
                             </form>
                            </td>
                         </tr>

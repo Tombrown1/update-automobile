@@ -115,6 +115,10 @@
                       <div class="form-group">
                         <label>Mission</label>
                         <textarea name="mission" class="form-control">{{ $setting->mission }}</textarea>
+                      </div> 
+                      <div class="form-group">
+                        <label>Core Value</label>
+                        <textarea name="core_value" class="form-control">{{ $setting->core_value }}</textarea>
                       </div>
 
                       <div class="form-group">

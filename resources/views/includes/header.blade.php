@@ -62,7 +62,7 @@ $setting = \App\Models\Setting::find(1);
 						<li class="dropdown"><a href="#">Membership<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								@foreach($uploads as $upload)
-								<li><a href="#"target="_blank">{{$upload->title}}</a></li>
+								<li><a href="{{asset('storage/'.$upload->file_path)}}"target="_blank">{{$upload->title}}</a></li>
 								@endforeach
 							</ul>
 						</li>
@@ -78,7 +78,7 @@ $setting = \App\Models\Setting::find(1);
 							<ul class="dropdown-menu">
 								
 								<li><a href="{{route('section')}}"target="#">Section</a></li>
-								<li><a href="{{route('view.gallery')}}"target="#">Gallery</a></li>
+								<li><a href="{{route('web.gallery')}}"target="#">Gallery</a></li>
 							
 							</ul>
 						</li>

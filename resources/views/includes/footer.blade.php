@@ -12,10 +12,11 @@
 					<div class="footer-col col-md-3 col-sm-6 res-m-bttm">
 						<!-- Each Widget -->
 						<div class="wgs wgs-footer wgs-menu">
-							<h5 class="wgs-title">About Us</h5>
-							<div class="wgs-content">
-								{{$setting->logo}}
-							</div>
+							<!-- <h5 class="wgs-title">About Us</h5> -->
+							<img src="{{asset('storage/'.$setting->logo)}}" width="150" class="img-thumbnail">
+							<br>
+							<!-- <div class="wgs-content">
+							</div> -->
 							<div class="wgs-content">
 								<ul class="menu">
 									@foreach($abouts as $about)
@@ -32,10 +33,10 @@
 							<h5 class="wgs-title">Explore</h5>
 							<div class="wgs-content">
 								<ul class="menu">
-									<li><a href="#">Photo Gallery</a></li>
-									<li><a href="#">Sections</a></li>
-									<li><a href="#">Our Services</a></li>
-									<li><a href="#">News & Events</a></li>
+									<li><a href="{{route('web.gallery')}}">Photo Gallery</a></li>
+									<li><a href="{{route('section')}}">Sections</a></li>
+									<!-- <li><a href="#">Our Services</a></li> -->
+									<li><a href="{{route('news.events')}}">News & Events</a></li>
 									<li><a href="#">Become a member</a></li>
 									<li><a href="#">Download membership form</a></li>
 									<li><a href="#">Download Membership Revalidation form</a></li>

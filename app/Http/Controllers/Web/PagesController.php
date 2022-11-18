@@ -7,30 +7,42 @@ use App\Models\About;
 use App\Models\Slider;
 use App\Models\Upload;
 use App\Models\Service;
+use App\Models\Setting;
+use App\Models\BlogPost;
 use App\Models\ClubSection;
 use Illuminate\Http\Request;
 use App\Models\ServiceCategory;
 use App\Http\Controllers\Controller;
-use App\Models\Setting;
+use App\Models\ClubCategory;
+use App\Models\Gallery;
+use Illuminate\Support\Facades\Response;
 
 class PagesController extends Controller
 {
     public function index()
     {  
+        $sectioncats = ClubSection::with('club_category')->where('deleted', 0)->inRandomOrder()->limit(4)->get();
+        $blog_posts = BlogPost::with('blog_category')->where('deleted', 0)->inRandomOrder()->limit(3)->get();
+        $about = Setting::where('deleted', 0)->find(1);
+        $abouts = About::where('deleted', 0)->find(2);
+
+        // return $about;
         $sliders = Slider::where('deleted', 0)->get();
-        return view('site.index', compact('sliders'));
+        return view('site.index', compact('sliders', 'about', 'abouts', 'blog_posts', 'sectioncats'));
     }
 
     public function about()
     {  
-
-        return view('site.about');
+        $about = Setting::where('deleted', 0)->find(1);
+        $sectioncats = ClubSection::with('club_category')->where('deleted', 0)->inRandomOrder()->limit(7)->get();
+        return view('site.about', compact('about', 'sectioncats'));
     }
 
      public function aboutview($slug)
     {
         $about = About::where('deleted', 0)->where('slug', $slug)->first();
-        return view('site.aboutview', compact('about'));
+        $sectioncats = ClubSection::with('club_category')->where('deleted', 0)->inRandomOrder()->limit(7)->get();
+        return view('site.aboutview', compact('about', 'sectioncats'));
     }
 
     public function services()
@@ -46,29 +58,50 @@ class PagesController extends Controller
 
     public function news_event()
     {
-        return view('site.news_events');
+        $about = Setting::where('deleted', 0)->find(1);
+        $blogs = BlogPost::with('blog_category')->where('deleted', 0)->inRandomOrder()->limit(5)->get();
+        return view('site.news_events', compact('blogs', 'about'));
     }
 
     public function view_news_event($slug)
     {
-        $blogs = Blog::where('deleted', 0)->where('slug', $slug)->first();
-        return view('site.view_news_events', compact('blogs'));
+        $setting = Setting::where('deleted', 0)->find(1);
+        $blogs = BlogPost::with('blog_category')->where('deleted', 0)->inRandomOrder()->limit(5)->get();
+        $blogview = BlogPost::with('blog_category')->where('deleted', 0)->where('slug', $slug)->first();
+        return view('site.view_news_event', compact('blogview', 'blogs', 'setting'));
     }
 
     public function section()
     {
-        return view('site.section');
+        $clubsections = ClubSection::with('club_category')->where('deleted', 0)->get();
+        return view('site.section', compact('clubsections'));
     }
 
      public function sectionview($slug)
     {
-        $sections = ClubSection::where('deleted', 0)->where('slug', $slug)->first();
-        return view('site.sectionview');
+        $setting = Setting::where('deleted', 0)->find(1);
+        $blogs = BlogPost::with('blog_category')->where('deleted', 0)->inRandomOrder()->limit(5)->get();
+        $section = ClubSection::where('deleted', 0)->where('slug', $slug)->first();
+        return view('site.sectionview', compact('section', 'setting', 'blogs' ));
     }
 
     public function gallery()
     {
-        return view('site.gallery');
+        $gallerys = Gallery::with('gallery_cat')->where('deleted', 0)->get();
+        // return $gallerys;
+        return view('site.gallery', compact('gallerys'));
     }
+
+
+     public function galleryview($slug)
+    {
+        $setting = Setting::where('deleted', 0)->find(1);
+        $blogs = BlogPost::where('deleted', 0)->inRandomOrder()->limit(5)->get();
+        $gallery = Gallery::with('gallery_cat')->where('deleted', 0)->where('slug', $slug)->first();
+        // return $gallery;
+        return view('site.gallery_view', compact('gallery', 'blogs', 'setting'));
+    }
+
+   
 }
 

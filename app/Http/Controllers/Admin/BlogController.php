@@ -144,11 +144,20 @@ class BlogController extends Controller
         return redirect($url)->with('success', 'Blog Category Added Successfully!');
     }
 
+    public function deleteBlog($id)
+    {
+        $delBlog = BlogPost::find($id);
+        // $delBlog->deleted = 1;
+        $delBlog->delete();
+
+        return back()->with('success', 'Blog Category Deleted Successfully!');
+    }
+    
     public function deleteBlogCat($id)
     {
         $delBlogCat = BlogCategory::find($id);
-        $delBlogCat->deleted = 1;
-        $delBlogCat->save();
+        // $delBlogCat->deleted = 1;
+        $delBlogCat->delete();
 
         return back()->with('success', 'Blog Category Deleted Successfully!');
     }

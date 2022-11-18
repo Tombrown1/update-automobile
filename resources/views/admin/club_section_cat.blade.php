@@ -21,6 +21,13 @@
           </ul>
         </div>
       @endif
+
+      @if(session()->has('error'))
+        <div class="alert alert-danger alert-block">
+          {{session()->get('error')}}
+        </div>
+      @endif
+
     <div class="row">
       <div class="col-md-4">
         <div class="card mt-3">

@@ -91,17 +91,16 @@
 					<div class="contact-details col-md-4 col-md-offset-1">
 						<ul class="contact-list">
 							<li><em class="fa fa-map" aria-hidden="true"></em>
-								<span>1234 Sed ut perspiciatis Road, <br>At vero eos, D58 8975, London.</span>
+								<span>{{$setting->address}}</span>
 							</li>
 							<li><em class="fa fa-phone" aria-hidden="true"></em>
-								<span>Toll Free : (123) 4567 8910<br>
-								Telephone : (123) 1234 5678</span>
+								<span>{{$setting->phone}}</span>
 							</li>
 							<li><em class="fa fa-envelope" aria-hidden="true"></em>
-								<span>Email : <a href="#">info@sitename.com</a></span>
+								<span>Email : <a href="#">{{$setting->email}}</a></span>
 							</li>
 							<li>
-								<em class="fa fa-clock-o" aria-hidden="true"></em><span>Sat - Thu: 8AM - 7PM </span>
+								<em class="fa fa-clock-o" aria-hidden="true"></em><span>Mon - Sat: 8AM - 7PM </span>
 							</li>
 						</ul>
 					</div>

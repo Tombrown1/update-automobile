@@ -10,7 +10,7 @@
 					<div class="content row">
 					
 						<div class="banner-text">
-							<h1 class="page-title">{{$section->name}}</h1>
+							<h1 class="page-title">{{$blogview->title}}</h1>
 							<p>To ventore veritatis et quasi architecto beatae vitae dicta et quasi architecto beatae vitae dicta.</p>						
 						</div>
 						<div class="page-breadcrumb">
@@ -37,18 +37,17 @@
 			
 				<div class="blog-wrapper row">
 					<div class="col-md-8 res-m-bttm">
-							<h3 class="page-title">{{$section->name}}</h3>
-
+							<h3 class="page-title">{{$blogview->title}}</h3>
 						<div class="post post-single">
 							<div class="post-thumbs">
-								<img alt="" src="{{asset('storage/'.$section->file_path)}}">
+								<img alt="" src="{{asset('storage/'.$blogview->featured_image)}}">
 							</div>
 							<div class="post-meta">
-								<span class="pub-date"><em class="fa fa-calendar" aria-hidden="true"></em> {{\Carbon\Carbon::createFromTimeStamp(strtotime($section->created_at))->toFormattedDateString()}} </span>
+								<span class="pub-date"><em class="fa fa-calendar" aria-hidden="true"></em> {{\Carbon\Carbon::createFromTimeStamp(strtotime($blogview->created_at))->toFormattedDateString()}} </span>
 							</div>
 							<div class="post-entry">
-								<h1>{{$section->title}}</h1>
-								<p>{!! nl2br($section->description) !!}</p>
+								<h1>{{$blogview->title}}</h1>
+								<p>{!! nl2br($blogview->description) !!}</p>
 							
 							</div>
 						</div>
@@ -58,7 +57,14 @@
 					<!-- Sidebar -->
 					<div class="col-md-4">
 						<div class="sidebar-right">
-							
+							<!-- <div class="wgs-box wgs-search">
+								<div class="wgs-content">
+									<div class="form-group">
+										<input type="text" class="form-control"  placeholder="Search...">
+										<button class="search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+									</div>
+								</div>
+							</div> -->
 
 							<div class="wgs-box wgs-recents">
 								<h3 class="wgs-heading">Recent Posts</h3>

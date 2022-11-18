@@ -58,7 +58,7 @@
                     </div>
                     <div class="form-group">
                       <label for="your-label" class="form-label">Post</label>
-                      <textarea  class="form-control" id="editor1" rows="50" cols="110" name="description">{{$blogcategory->description}}
+                      <textarea  class="form-control" id="editor1" rows="50" cols="110" name="description">{{$blogpost->description}}
                       </textarea>
                       <script>
                           // Replace the <textarea id="editor1"> with a CKEditor

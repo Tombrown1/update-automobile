@@ -86,6 +86,8 @@ class AboutController extends Controller
             'image' => 'required|image|mimes:jpeg, jpg, png, gif, svg, pdf|max:2048',
         ]);
 
+        // @Tomc963
+
         if($request->file('image')){
             $file = $request->file('image');
             $image = Storage::disk('public')->putFile('About', $file);
@@ -132,40 +134,57 @@ class AboutController extends Controller
         return back()->with('success', 'About Category Added Successfully!');
     }
 
-    public function delete_about_section($id)
+    public function delete_about($id)
     {
-        $checkIf_about_Cat_Sec_Id_exist = AboutSectionCategory::where('about_id', $id)->first();
-
-        $checkIf_about_Id_exist = About::where('deleted', 0)->where('id', $id)->first();
-
-         if(is_null($checkIf_about_Cat_Sec_Id_exist)){
-            return back()->with('message', 'About Section Category Does not Exist!');
-        }
-
-        if(is_null($checkIf_about_Id_exist)){
-            return back()->with('message', 'About Section Does not Exist!');
-        }
-
-
-
-        $del_about_section = About::find($id);
-        // $del_about_section->deleted = 1;
-        $del_about_section->delete();
-
-
-        
-        $delete_abt_sect_cat = AboutSectionCategory::where('about_id', $id)->first();
-        $delete_abt_sect_cat->delete();
+        $del_about = About::find($id);
+        $del_about->delete();
 
         return back()->with('success', 'About Section Deleted Successfully!');
     }
 
+   
+
     public function delete_about_category($id)
     {
+        $checkIf_about_Cat_Id_exist_in_About = About::where('about_cat_id', $id)->first();
+        if($checkIf_about_Cat_Id_exist_in_About != Null){
+            return back()->with('error', 'About Category cannot be deleted, it is aleady in use!');
+        }
        $del_about_cat = AboutCategory::find($id);
+    //    return $del_about_cat;
        $del_about_cat->delete();
 
         return back()->with('success', 'About Category Deleted Successfully!');
 
-    }
+    } 
+
+    
+    // There are some useful logic and query in the below commented function, kindly ignore if it doesn't relate to what you are working on at the moment.
+    
+    // public function delete_about_section($id)
+    // {
+    //     $checkIf_about_Cat_Sec_Id_exist = AboutSectionCategory::where('about_id', $id)->first();
+
+    //     $checkIf_about_Id_exist = About::where('deleted', 0)->where('id', $id)->first();
+
+    //      if(is_null($checkIf_about_Cat_Sec_Id_exist)){
+    //         return back()->with('message', 'About Section Category Does not Exist!');
+    //     }
+
+    //     if(is_null($checkIf_about_Id_exist)){
+    //         return back()->with('message', 'About Section Does not Exist!');
+    //     }
+
+
+
+    //     $del_about_section = About::find($id);
+        
+    //     $del_about_section->delete();
+
+    //     $delete_abt_sect_cat = AboutSectionCategory::where('about_id', $id)->first();
+    //     $delete_abt_sect_cat->delete();
+
+    //     return back()->with('success', 'About Section Deleted Successfully!');
+    // }
+
 }

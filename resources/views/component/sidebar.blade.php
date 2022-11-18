@@ -222,7 +222,7 @@
                   <a href="#" class="nav-link">
                     <i class="nav-icon fa fa-newspaper text-cyan"></i>
                     <p>
-                     Board 
+                     Management Team 
                       <i class="right fa fa-angle-left"></i>
                     </p>
                   </a>
@@ -231,14 +231,14 @@
                     <li class="nav-item">
                       <a href="{{route('board')}}" class="nav-link ml-3">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Board Section</p>
+                        <p>Management Section</p>
                       </a>
                     </li>
 
                     <li class="nav-item">
                       <a href="{{route('board.category')}}" class="nav-link ml-3">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Board Category</p>
+                        <p>Management Category</p>
                       </a>
                     </li>
 

@@ -17,8 +17,7 @@ class BoardController extends Controller
         $boardcats = BoardCategory::where('deleted', 0)->get();
         if(!empty($id)){
             // $boards = Board::where('deleted', 0)->where('board_cat_id', $id)->get();
-            $boards = Board::with('board_category')->where('deleted', 0)->where('board_cat_id', $id)->get();
-            
+            $boards = Board::with('board_category')->where('deleted', 0)->where('board_cat_id', $id)->get();            
         }else{
             $boards = Board::where('deleted', 0)->get();
         }
@@ -101,10 +100,7 @@ class BoardController extends Controller
 
     public function deleteBoard($id)
     {
-        $deleteBoard = Board::find($id);
-        // // return $deleteBoard;
-        // $deleteBoard->deleted = 1;
-        // $deleteBoard->save();
+        $deleteBoard = Board::find($id);      
         $deleteBoard->delete();
 
         return back()->with('success', 'Board Deleted Successfully!');
@@ -142,7 +138,12 @@ class BoardController extends Controller
 
     public function deleteBoardCat($id)
     {
+        $checkIfCatIdExistInBoard = Board::where('board_cat_id', $id)->first();
+        if($checkIfCatIdExistInBoard != Null){
+            return back()->with('error', 'Board Category Cannot be deleted. it is already in use!');
+        }
         $deleteBoardCat = BoardCategory::find($id);
+        return $deleteBoardCat;
         $deleteBoardCat->delete();
 
         return back()->with('success', 'Board Category Deleted Successfully!');

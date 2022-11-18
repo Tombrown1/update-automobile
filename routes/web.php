@@ -34,12 +34,15 @@ Route::get('/services', [PagesController::class, 'services'])->name('services');
 Route::get('/view-services/{slug}', [PagesController::class, 'viewServices'])->name('view.services');
 
 Route::get('/news-events', [PagesController::class, 'news_event'])->name('news.events');
-Route::get('/view-news-events/{slug}', [PagesController::class, 'view_news_event'])->name('view.news.events');
+Route::get('/view-news-event/{slug}', [PagesController::class, 'view_news_event'])->name('view.news.event');
 
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/section', [PagesController::class, 'section'])->name('section');
 Route::get('/section-view/{slug}', [PagesController::class, 'sectionview'])->name('section.view');
-Route::get('/gallery', [PagesController::class, 'gallery'])->name('view.gallery');
+Route::get('/gallery', [PagesController::class, 'gallery'])->name('web.gallery');
+Route::get('/gallery/{slug}', [PagesController::class, 'galleryview'])->name('gallery.view');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
 
 
 require __DIR__.'/auth.php';
@@ -75,6 +78,7 @@ Route::group(['prefix' => 'admin', 'middleware'], function ()
     Route::post('/add-post', [BlogController::class, 'addblogpost'])->name('add.post');
     Route::post('/add-blog-category', [BlogController::class, 'addBlogCat'])->name('add.blog.category');
     Route::post('/del-blog-category/{id}', [BlogController::class, 'deleteBlogCat'])->name('del.blog.category');
+    Route::post('/del-blog/{id}', [BlogController::class, 'deleteBlog'])->name('del.blog');
 
     // Club Section Route
     Route::get('/club-section', [ClubSectionController::class, 'index'])->name('club.section');
@@ -104,7 +108,7 @@ Route::group(['prefix' => 'admin', 'middleware'], function ()
      Route::get('/edit-about-section/{id}', [AboutController::class, 'edit_about'])->name('edit.about.section');
      Route::post('/update-about-section/{id}', [AboutController::class, 'update_about'])->name('update.about.section');
      Route::post('/del-about-category/{id}', [AboutController::class, 'delete_about_category'])->name('del.about.category');
-    Route::post('/delete-about-section/{id}', [AboutController::class, 'delete_about_section'])->name('del.about.section');
+    Route::post('/delete-about-section/{id}', [AboutController::class, 'delete_about'])->name('del.about.section');
 
 
     // Contact Route

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('pageTitle', 'Gallery')
+@section('pageTitle', 'Uploads')
 @section('content')
 
 <div class="content">
@@ -23,6 +23,12 @@
                   <li>{{ $error }}</li>
                 @endforeach
               </ul>
+            </div>
+          @endif
+
+          @if(session()->has('error'))
+            <div class="alert alert-danger">
+                {{ session()->get('error') }}
             </div>
           @endif
 
@@ -88,7 +94,7 @@
                             <td>{{$loop->index +1}}</td>
                             <td>{{$upload->title}}</td>
                             <td>{{$upload->description}}</td>
-                             <th><img class="img-thumbnail" src="{{ asset('storage/'.$upload->file_path) }}" width="70px"></th>
+                             <th><embed class="pdf" src="{{ asset('storage/'.$upload->file_path) }}" width="50%" height="50%"></th>
                            <td>
                             <form action="{{route('delete.file', ['id' => $upload->id])}}" method="post">
                                 @csrf

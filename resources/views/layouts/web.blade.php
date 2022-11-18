@@ -43,16 +43,21 @@
 			
 				<div class="row">
 					<div class="site-copy col-sm-7">
-						<p>&copy; 2017 Finance Corp. <a href="#">Policy</a></p>
+						<p>&copy; 2022 Aba Sports Club. <a href="#">Policy</a></p>
 					</div>
 					<div class="site-by col-sm-5 al-right">
-						<!-- <p>Template Made by <a href="http://softnio.com/" target="_blank">Softnio.</a></p> -->
 					</div>
 				</div>
 				 				
 			</div>
 		</div>
 	</div>
+
+	<!-- JavaScript Bundle -->
+	<script src="{{asset('frontend/assets/js/jquery.bundle.js')}}"></script>
+	<!-- Theme Script init() -->
+	<script src="{{asset('frontend/assets/js/script.js')}}"></script>
+	<!-- End script -->
 	<!-- End Copyright -->
 	
 	<!-- Rreload Image for Slider -->
