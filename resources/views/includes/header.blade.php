@@ -57,6 +57,7 @@ $setting = \App\Models\Setting::find(1);
 								<li><a href="{{route('about.view', ['slug' => $about->slug])}}	">{{$about->name}}</a></li>
 													
 								@endforeach
+								<li><a href="{{route('web.past.president')}}">Past President</a></li>
 							</ul>
 						</li>
 						<li class="dropdown"><a href="#">Membership<b class="caret"></b></a>

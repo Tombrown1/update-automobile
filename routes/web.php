@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\BoardController;
 use App\Http\Controllers\Admin\ClubSectionController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\PastPresidentController;
 use App\Http\Controllers\Admin\ServiceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\PagesController;
@@ -40,6 +41,9 @@ Route::get('/section', [PagesController::class, 'section'])->name('section');
 Route::get('/section-view/{slug}', [PagesController::class, 'sectionview'])->name('section.view');
 Route::get('/gallery', [PagesController::class, 'gallery'])->name('web.gallery');
 Route::get('/gallery/{slug}', [PagesController::class, 'galleryview'])->name('gallery.view');
+
+Route::get('/past-president', [PagesController::class, 'past_president'])->name('web.past.president');
+Route::get('/past-president/{slug}', [PagesController::class, 'view_past_president'])->name('view.past.president');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
@@ -132,4 +136,10 @@ Route::group(['prefix' => 'admin', 'middleware'], function ()
     Route::post('/delete-board/{id}', [BoardController::class, 'deleteBoard'])->name('delete.board');
     Route::post('/delete-board-Cat/{id}', [BoardController::class, 'deleteBoardCat'])->name('delete.board.cat');
     
+
+    // Past President Route
+    Route::get('/past-presidents', [PastPresidentController::class, 'index'])->name('past.president');
+    Route::post('/create-past-president', [PastPresidentController::class, 'create_past_president'])->name('create.past.president');
+    Route::post('/edit-past-president/{id}', [PastPresidentController::class, 'edit_past_president'])->name('edit.past.president');
+    Route::post('/delete-past-president/{id}', [PastPresidentController::class, 'delete_past_president'])->name('delete.past.president');
 });

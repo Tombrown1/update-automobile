@@ -15,6 +15,7 @@ use App\Models\ServiceCategory;
 use App\Http\Controllers\Controller;
 use App\Models\ClubCategory;
 use App\Models\Gallery;
+use App\Models\PastPresident;
 use Illuminate\Support\Facades\Response;
 
 class PagesController extends Controller
@@ -22,7 +23,7 @@ class PagesController extends Controller
     public function index()
     {  
         $sectioncats = ClubSection::with('club_category')->where('deleted', 0)->inRandomOrder()->limit(4)->get();
-        $blog_posts = BlogPost::with('blog_category')->where('deleted', 0)->inRandomOrder()->limit(3)->get();
+        $blog_posts = BlogPost::with('blog_category')->where('deleted', 0)->inRandomOrder()->limit(3)->get();        
         $about = Setting::where('deleted', 0)->find(1);
         $abouts = About::where('deleted', 0)->find(2);
 
@@ -102,6 +103,22 @@ class PagesController extends Controller
         return view('site.gallery_view', compact('gallery', 'blogs', 'setting'));
     }
 
+    public function past_president()
+    {       
+        $sectioncats = ClubSection::with('club_category')->where('deleted', 0)->inRandomOrder()->limit(7)->get();
+        $past_presidents = PastPresident::where('deleted', 0)->inRandomOrder()->paginate(10);
+        return view('site.pst_president', compact('past_presidents', 'sectioncats'));
+    }
+
+    public function view_past_president($slug)
+    {
+        $setting = Setting::where('deleted', 0)->find(1);
+        $blogs = BlogPost::where('deleted', 0)->inRandomOrder()->limit(5)->get();
+        $about = About::where('deleted', 0)->where('slug', $slug)->first();
+        $sectioncats = ClubSection::with('club_category')->where('deleted', 0)->inRandomOrder()->limit(7)->get();
+        $past_president = PastPresident::where('deleted', 0)->where('slug', $slug)->first();
+        return view('site.view_pst_president', compact('past_president', 'about', 'sectioncats', 'setting', 'blogs'));
+    }
    
 }
 

@@ -234,6 +234,12 @@
                         <p>Management Section</p>
                       </a>
                     </li>
+                    <li class="nav-item">
+                      <a href="{{route('past.president')}}" class="nav-link ml-3">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Past President</p>
+                      </a>
+                    </li>
 
                     <li class="nav-item">
                       <a href="{{route('board.category')}}" class="nav-link ml-3">
