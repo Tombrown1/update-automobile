@@ -43,7 +43,7 @@ class ContactController extends Controller
 
         $addContact->save();
 
-        return back()->with('success', 'Contact Added Successfully!');
+        return back()->with('success', 'Your contact details has been save successfully, we will gwt back to you soon!');
     }
 
     public function deleteContact($id)

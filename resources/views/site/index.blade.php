@@ -112,7 +112,7 @@
 					<div class="col-md-6 res-m-bttm">
 						<!-- <h5 class="heading-sm-lead">About us</h5> -->
 						<h2 class="heading-section">WELCOME TO ABA SPORTS CLUB</h2>
-						<p>{!! nl2br(substr(strip_tags($about->about), 0, 336)) !!}</p>
+						<p>{!! nl2br(substr(strip_tags($about->about), 0, 800)) !!}</p>
 						<a class="btn btn-alt d-flex justify-content-center float-right" href="{{route('about')}}">Read More</a>
 						
 					</div>  

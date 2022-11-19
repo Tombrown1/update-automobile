@@ -43,9 +43,15 @@
                         </ul>
                     </div>
                 @endif
+
+				
             </div>
 			<div class="content row">
-
+				@if(session()->has('success'))
+					<div class="alert alert-success">
+						{{session()->get('success')}}
+					</div>
+				@endif
 				<h2 class="heading-lg">Contact Us</h2>
 				<div class="contact-content row">
 					<div class="drop-message col-md-7 res-m-bttm">
