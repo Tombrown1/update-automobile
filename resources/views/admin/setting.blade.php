@@ -156,7 +156,7 @@
                         </button>
                       </div>
 
-                      <form method="POST" action="#">
+                      <form action="{{route('new.user')}}" method="POST" >
                         @csrf
                         <div class="modal-body">
                           <div class="form-group">
@@ -191,7 +191,17 @@
                         <th>Modify</th>
                       </tr>
                     </thead>
-                    
+                    <tbody>
+                      @foreach($users as $user)
+                          <tr>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
+                           <td>
+                             <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editgallery"><span class="fa fa-edit"></span></button>
+                           </td>
+                          </tr>
+                      @endforeach
+                    </tbody>
                   </table>
                 </div>
               </div>

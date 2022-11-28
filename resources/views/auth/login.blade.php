@@ -1,56 +1,47 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/" class="d-flex justify-content-center mb-4">
-                <x-application-logo width=64 height=64 />
-            </a>
-           
-        </x-slot>
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+  <title> Login  </title>
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="icon" type="image/png" href="{{ asset('backend/favicon.ico') }}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/assets/css/signup_style.css') }}">
+  <!-- Google Font: Source Sans Pro -->
 
-                <x-input id="email" class="" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class=""
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
-
-            <!-- Remember Me -->
-            <div class="mt-3 form-check">
-                <input id="remember_me" type="checkbox" class="form-check-input" name="remember">
-                <label for="remember_me" class="form-check-label text-sm">
-                    {{ __('Remember me') }}
-                </label>
-            </div>
-
-            <div class="d-flex justify-content-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="text-muted" href="{{ route('password.request') }}" style="margin-right: 15px; margin-top: 15px;">
-                        {{ __('Forgot your password?') }}
-                    </a>
+</head>
+  <body>
+     <div class="sign-up-form">
+        <img src="{{asset('images/logo3.png')}}" alt="">
+        <h3>Sign In</h3>
+            <form action="{{route('login')}}" method="post">
+                @csrf
+                @if(session('status'))
+                  <div class="alert alert-success">
+                    {{session('status')}}
+                  </div>
                 @endif
+                <input type="email" class="input-box" name="email" placeholder="Email">
+                <span class="text-danger">@error('email'){{$message}}@enderror</span>
+                <input type="password" class="input-box" name="password" placeholder="Password">
+                <span class="text-danger">@error('password'){{$message}}@enderror</span>
+                <!-- <p> <span><input type="checkbox"></span> I agree to the terms of service</p> -->
+                <!-- <button type="button" class="signup-btn">Sign Up</button> -->
+                <!-- <hr>
+                <p class="or">OR</p> -->
+                <span><a href="{{route('password.request')}}" class="float-right">Forgot Password</a></span>
+                <button type="submit" class="login-btn">Login </button>                  
+                <p>Don't have an account ? <a href="{{route('register')}}">Sign up</a></p>
+              
+            </form>
+     </div>
 
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+  </body>
+</html>

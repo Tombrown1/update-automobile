@@ -262,7 +262,7 @@
 	
 
 	<!-- Call Action -->
-	<div class="call-action cta-small has-bg bg-primary" style="background-image: url('image/plx-cta.jpg');">
+	<div class="call-action cta-small has-bg " style="background-image: url('image/plx-cta.jpg'); background-color:#3B2D62">
 		<div class="cta-block">
 			<div class="container">
 				<div class="content row">

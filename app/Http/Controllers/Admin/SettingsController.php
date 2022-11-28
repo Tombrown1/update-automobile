@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\User;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,8 +13,10 @@ class SettingsController extends Controller
     public function index()
     {
         $setting = Setting::find(1);
+        $users = User::where('deleted', 0)->get();
+
         // return $settings;
-        return view('admin.setting', compact('setting'));
+        return view('admin.setting', compact('setting', 'users'));
     }
 
     public function updateSetting(Request $request)
@@ -86,5 +89,5 @@ class SettingsController extends Controller
       return back()->with('success', 'Logo Uploaded Successfully!');
     }
 
-
+   
 }

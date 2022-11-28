@@ -7,49 +7,70 @@ Update: 11.18.2017
 @font-face {
     font-family: "Roboto";
     src: url("../fonts/roboto/roboto-regular-webfont.eot");
-    src: url("../fonts/roboto/roboto-regular-webfontd41d.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/roboto-regular-webfont.woff2") format("woff2"), url("../fonts/roboto/roboto-regular-webfont.woff") format("woff"),
+    src: url("../fonts/roboto/roboto-regular-webfontd41d.eot?#iefix")
+            format("embedded-opentype"),
+        url("../fonts/roboto/roboto-regular-webfont.woff2") format("woff2"),
+        url("../fonts/roboto/roboto-regular-webfont.woff") format("woff"),
         url("../fonts/roboto/roboto-regular-webfont.ttf") format("truetype");
     font-weight: 400;
 }
 @font-face {
     font-family: "Roboto";
     src: url("../fonts/roboto/roboto-bold-webfont.eot");
-    src: url("../fonts/roboto/roboto-bold-webfontd41d.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/roboto-bold-webfont.woff2") format("woff2"), url("../fonts/roboto/roboto-bold-webfont.woff") format("woff"),
+    src: url("../fonts/roboto/roboto-bold-webfontd41d.eot?#iefix")
+            format("embedded-opentype"),
+        url("../fonts/roboto/roboto-bold-webfont.woff2") format("woff2"),
+        url("../fonts/roboto/roboto-bold-webfont.woff") format("woff"),
         url("../fonts/roboto/roboto-bold-webfont.ttf") format("truetype");
     font-weight: 700;
 }
 @font-face {
     font-family: "Roboto";
     src: url("../fonts/roboto/roboto-light-webfont.eot");
-    src: url("../fonts/roboto/roboto-light-webfontd41d.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/roboto-light-webfont.woff2") format("woff2"), url("../fonts/roboto/roboto-light-webfont.woff") format("woff"),
+    src: url("../fonts/roboto/roboto-light-webfontd41d.eot?#iefix")
+            format("embedded-opentype"),
+        url("../fonts/roboto/roboto-light-webfont.woff2") format("woff2"),
+        url("../fonts/roboto/roboto-light-webfont.woff") format("woff"),
         url("../fonts/roboto/roboto-light-webfont.ttf") format("truetype");
     font-weight: 300;
 }
 @font-face {
     font-family: "Poppins";
     src: url("../fonts/poppins/poppins-light-webfont.eot");
-    src: url("../fonts/poppins/poppins-light-webfontd41d.eot?#iefix") format("embedded-opentype"), url("../fonts/poppins/poppins-light-webfont.woff2") format("woff2"), url("../fonts/poppins/poppins-light-webfont.woff") format("woff"),
+    src: url("../fonts/poppins/poppins-light-webfontd41d.eot?#iefix")
+            format("embedded-opentype"),
+        url("../fonts/poppins/poppins-light-webfont.woff2") format("woff2"),
+        url("../fonts/poppins/poppins-light-webfont.woff") format("woff"),
         url("../fonts/poppins/poppins-light-webfont.ttf") format("truetype");
     font-weight: 300;
 }
 @font-face {
     font-family: "Poppins";
     src: url("../fonts/poppins/poppins-regular-webfont.eot");
-    src: url("../fonts/poppins/poppins-regular-webfontd41d.eot?#iefix") format("embedded-opentype"), url("../fonts/poppins/poppins-regular-webfont.woff2") format("woff2"), url("../fonts/poppins/poppins-regular-webfont.woff") format("woff"),
+    src: url("../fonts/poppins/poppins-regular-webfontd41d.eot?#iefix")
+            format("embedded-opentype"),
+        url("../fonts/poppins/poppins-regular-webfont.woff2") format("woff2"),
+        url("../fonts/poppins/poppins-regular-webfont.woff") format("woff"),
         url("../fonts/poppins/poppins-regular-webfont.ttf") format("truetype");
     font-weight: 400;
 }
 @font-face {
     font-family: "Poppins";
     src: url("../fonts/poppins/poppins-semibold-webfont.eot");
-    src: url("../fonts/poppins/poppins-semibold-webfontd41d.eot?#iefix") format("embedded-opentype"), url("../fonts/poppins/poppins-semibold-webfont.woff2") format("woff2"),
-        url("../fonts/poppins/poppins-semibold-webfont.woff") format("woff"), url("../fonts/poppins/poppins-semibold-webfont.ttf") format("truetype");
+    src: url("../fonts/poppins/poppins-semibold-webfontd41d.eot?#iefix")
+            format("embedded-opentype"),
+        url("../fonts/poppins/poppins-semibold-webfont.woff2") format("woff2"),
+        url("../fonts/poppins/poppins-semibold-webfont.woff") format("woff"),
+        url("../fonts/poppins/poppins-semibold-webfont.ttf") format("truetype");
     font-weight: 600;
 }
 @font-face {
     font-family: "Poppins";
     src: url("../fonts/poppins/poppins-bold-webfont.eot");
-    src: url("../fonts/poppins/poppins-bold-webfontd41d.eot?#iefix") format("embedded-opentype"), url("../fonts/poppins/poppins-bold-webfont.woff2") format("woff2"), url("../fonts/poppins/poppins-bold-webfont.woff") format("woff"),
+    src: url("../fonts/poppins/poppins-bold-webfontd41d.eot?#iefix")
+            format("embedded-opentype"),
+        url("../fonts/poppins/poppins-bold-webfont.woff2") format("woff2"),
+        url("../fonts/poppins/poppins-bold-webfont.woff") format("woff"),
         url("../fonts/poppins/poppins-bold-webfont.ttf") format("truetype");
     font-weight: 700;
 }
@@ -81,7 +102,7 @@ h3.color-secondary,
 h4.color-secondary,
 h5.color-secondary,
 h6.color-secondary {
-    color: #DB9403;
+    color: #db9403;
 }
 h1.color-primary,
 h2.color-primary,
@@ -169,7 +190,7 @@ table:last-child {
     font-size: 1.375em;
 }
 .heading-section.color-secondary {
-    color: #DB9403;
+    color: #db9403;
 }
 .heading-section.color-primary {
     color: #144194;
@@ -246,7 +267,7 @@ table:last-child {
 }
 .heading-sm-lead.color-secondary,
 .heading-md-lead.color-secondary {
-    color: #DB9403;
+    color: #db9403;
 }
 .with-line {
     position: relative;
@@ -338,7 +359,7 @@ a:hover,
 a:focus,
 a:active {
     outline: 0;
-    color: #DB9403;
+    color: #db9403;
 }
 img {
     outline: 0;
@@ -626,7 +647,7 @@ input:focus {
     background-color: #144194;
 }
 .has-bg.bg-secondary:after {
-    background-color: #DB9403;
+    background-color: #db9403;
 }
 .has-bg.bg-alternet:after {
     background-color: #0a6339;
@@ -676,13 +697,13 @@ input:focus {
 }
 .btn:hover,
 .btn:focus {
-    background-color: #DB9403;
-    border-color: #DB9403;
+    background-color: #db9403;
+    border-color: #db9403;
     color: #fff;
 }
 .btn.btn-alt {
-    background: #DB9403;
-    border-color: #DB9403;
+    background: #db9403;
+    border-color: #db9403;
 }
 .btn.btn-alt:hover,
 .btn.btn-alt:focus {
@@ -700,13 +721,13 @@ input:focus {
     border-color: #144194;
 }
 .btn.btn-outline.btn-alt {
-    color: #DB9403;
+    color: #db9403;
 }
 .btn.btn-outline.btn-alt:hover,
 .btn.btn-outline.btn-alt:focus {
     color: #fff;
-    background: #DB9403;
-    border-color: #DB9403;
+    background: #db9403;
+    border-color: #db9403;
 }
 .btn.btn-outline.btn-light {
     color: #fff;
@@ -719,8 +740,8 @@ input:focus {
 }
 .btn.btn-outline.btn-light.btn-alt:hover,
 .btn.btn-outline.btn-light.btn-alt:focus {
-    background: #DB9403;
-    border-color: #DB9403;
+    background: #db9403;
+    border-color: #db9403;
 }
 .btn.btn-light:not(.btn-outline) {
     color: #144194;
@@ -734,13 +755,13 @@ input:focus {
     border-color: #144194;
 }
 .btn.btn-light:not(.btn-outline).btn-alt {
-    color: #DB9403;
+    color: #db9403;
 }
 .btn.btn-light:not(.btn-outline).btn-alt:hover,
 .btn.btn-light:not(.btn-outline).btn-alt:focus {
     color: #fff;
-    background: #DB9403;
-    border-color: #DB9403;
+    background: #db9403;
+    border-color: #db9403;
 }
 .btn.btn-center {
     margin: 0 auto;
@@ -934,7 +955,7 @@ form label.error {
     color: #144194;
 }
 .color-secondary {
-    color: #DB9403;
+    color: #db9403;
 }
 .color-alternet {
     color: #0a6339;
@@ -967,7 +988,7 @@ form label.error {
     background: #144194;
 }
 .bg-secondary {
-    background: #DB9403;
+    background: #db9403;
 }
 .bg-alternet {
     background: #0a6339;
@@ -1496,7 +1517,7 @@ form label.error {
     color: #fff;
 }
 .icon-box.icon-bg-alt {
-    background-color: #DB9403;
+    background-color: #db9403;
     color: #fff;
 }
 .icon-box.light {
@@ -1523,11 +1544,11 @@ form label.error {
 .icon-box.style-s2 {
     -ms-border-radius: 50%;
     border-radius: 50%;
-    background-color: #144194;
+    background-color: #3b2d62;
     color: #fff;
 }
 .icon-box.style-s2 {
-    background-color: #DB9403;
+    background-color: #db9403;
 }
 .icon-box.style-s3,
 .icon-box.style-s4 {
@@ -1539,8 +1560,8 @@ form label.error {
 .icon-box.style-s4 {
     -ms-border-radius: 3px;
     border-radius: 3px;
-    border-color: #DB9403;
-    color: #DB9403;
+    border-color: #db9403;
+    color: #db9403;
 }
 .feature-intro .row + .row {
     margin-top: 60px;
@@ -1654,8 +1675,8 @@ form label.error {
     font-weight: 700;
     text-transform: uppercase;
     color: #fff;
-    background-color: #DB9403;
-    border: 2px solid #DB9403;
+    background-color: #db9403;
+    border: 2px solid #db9403;
     margin: 0;
     vertical-align: middle;
 }
@@ -1668,8 +1689,8 @@ form label.error {
     background: transparent;
 }
 .site-header .quote-btn .btn.btn-outline:hover {
-    background: #DB9403;
-    border-color: #DB9403;
+    background: #db9403;
+    border-color: #db9403;
 }
 .topbar {
     padding: 6px 0;
@@ -2036,7 +2057,13 @@ form label.error {
 .header-s1.is-transparent.has-fixed .navbar-nav > li.quote-btn .btn {
     color: #fff;
 }
-.header-s1.is-transparent.has-fixed .navbar-nav > li > a .navbar-nav > li > a:not(.btn)::after {
+.header-s1.is-transparent.has-fixed
+    .navbar-nav
+    > li
+    > a
+    .navbar-nav
+    > li
+    > a:not(.btn)::after {
     background-color: #144194;
 }
 .header-s1.is-transparent.has-fixed .navbar-collapse {
@@ -2068,7 +2095,7 @@ form label.error {
 .header-s1.header-dark .topbar .icon,
 .header-s1.header-dark .topbar .fa,
 .header-s1.header-dark .topbar a:hover {
-    color: #DB9403;
+    color: #db9403;
 }
 .header-s1.header-dark .navbar {
     background: #144194;
@@ -2107,7 +2134,7 @@ form label.error {
     color: inherit;
 }
 .breadcrumb li:not(.active) a:hover {
-    color: #DB9403;
+    color: #db9403;
 }
 .breadcrumb > li + li:before {
     color: inherit;
@@ -2434,8 +2461,8 @@ form label.error {
 }
 .call-action .btn.btn-light:hover {
     color: #fff;
-    background-color: #DB9403;
-    border-color: #DB9403;
+    background-color: #db9403;
+    border-color: #db9403;
 }
 .call-action .btn.btn-outline:hover {
     background-color: #fff;
@@ -2462,8 +2489,8 @@ form label.error {
 .call-action.bg-primary .btn:not(.btn-light),
 .call-action:not([class*="bg-"]) .btn:not(.btn-light) {
     color: #fff;
-    background-color: #DB9403;
-    border-color: #DB9403;
+    background-color: #db9403;
+    border-color: #db9403;
 }
 .call-action.bg-primary .btn:not(.btn-light):hover,
 .call-action.bg-primary .btn:not(.btn-light):focus,
@@ -2472,7 +2499,7 @@ form label.error {
     color: #144194;
 }
 .call-action.bg-secondary {
-    background-color: #DB9403;
+    background-color: #db9403;
 }
 .call-action.bg-secondary .btn:not(.btn-light) {
     color: #fff;
@@ -2481,10 +2508,10 @@ form label.error {
 }
 .call-action.bg-secondary .btn:not(.btn-light):hover,
 .call-action.bg-secondary .btn:not(.btn-light):focus {
-    color: #DB9403;
+    color: #db9403;
 }
 .call-action.bg-secondary .btn-light {
-    color: #DB9403;
+    color: #db9403;
 }
 .call-action.bg-secondary .btn-light:hover {
     color: #fff;
@@ -2813,7 +2840,7 @@ form label.error {
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     font-size: 36px;
-    color: #DB9403;
+    color: #db9403;
 }
 .quotes {
     margin-top: 60px;
@@ -3230,7 +3257,7 @@ form label.error {
     transition: color 0.4s;
 }
 .wgs-box.wgs-search .form-group button.search-btn:hover {
-    color: #DB9403;
+    color: #db9403;
 }
 .wgs-box.wgs-quoteform {
     background-color: #f8f8f8;
@@ -3420,7 +3447,7 @@ form label.error {
     color: #144194;
 }
 .post .post-entry a.btn {
-    color: #DB9403;
+    color: #db9403;
     background: none;
     border: 0 none;
     padding: 0;
@@ -3580,14 +3607,17 @@ form label.error {
     position: absolute;
     bottom: 0;
     width: 100%;
+    /* height: 100%; */
     z-index: 2;
     color: #fff;
     padding: 20px 25px;
     transition: all 0.4s;
     -ms-border-radius: 0px 0px 3px 3px;
     border-radius: 0px 0px 3px 3px;
-    background: rgba(0, 151, 80, 0.85);
-    /* background: rgba(0, 34, 163, 103); */
+    /* background: rgba(0, 151, 80, 0.85); */
+    /* background: rgba(0, 151, 80, 0.85); */
+    /* background:    	rgba(59,45,98,1.000) */
+    background: rgba(59, 45, 98, 0.8);
 }
 .feature .fbox-over .title,
 .feature .fbox-over .fbox-content {
@@ -3628,7 +3658,7 @@ form label.error {
 .feature .fbox-photo img {
     margin: 0;
     width: 100%;
-    height: auto;
+    height: 230px !important;
     border-radius: 0;
 }
 .feature .fbox-photo.imagebg img {
@@ -3722,7 +3752,7 @@ form label.error {
     background: rgba(234, 165, 21, 0.85);
 }
 .feature.bg-secondary .fbox-over .btn:hover {
-    color: #DB9403;
+    color: #db9403;
 }
 .feature.bg-dark .fbox-over {
     background: rgba(0, 0, 0, 0.7);
@@ -3747,12 +3777,12 @@ form label.error {
     text-stroke: 1px #144194;
 }
 .feature.bg-secondary {
-    background-color: #DB9403;
+    background-color: #db9403;
     color: #fff;
 }
 .feature.bg-secondary .fa {
-    -webkit-text-stroke: 1px #DB9403;
-    text-stroke: 1px #DB9403;
+    -webkit-text-stroke: 1px #db9403;
+    text-stroke: 1px #db9403;
 }
 .feature.bg-primary-alt {
     background: #00c568;
@@ -3856,28 +3886,28 @@ a:hover > .feature.boxed {
 .feature-s2 .feature h4,
 .feature-s2 .feature h3 a,
 .feature-s2 .feature h4 a {
-    color: #DB9403;
+    color: #db9403;
     transition: color 0.5s;
 }
 .feature-s2 .feature .icon-box {
-    border-color: #DB9403;
-    color: #DB9403;
+    border-color: #db9403;
+    color: #db9403;
 }
 .feature-s2 .feature:hover {
-    border-color: #DB9403;
+    border-color: #db9403;
 }
 .feature-s2 .feature:hover .icon-box {
     color: #fff;
-    background-color: #DB9403;
+    background-color: #db9403;
 }
 .feature-s2.hover-fill .feature h3,
 .feature-s2.hover-fill .feature h4,
 .feature-s2.hover-fill .feature h3 a,
 .feature-s2.hover-fill .feature h4 a {
-    color: #DB9403;
+    color: #db9403;
 }
 .feature-s2.hover-fill .feature:hover {
-    background-color: #DB9403;
+    background-color: #db9403;
     color: #fff;
 }
 .feature-s2.hover-fill .feature:hover .icon-box {
@@ -3994,7 +4024,11 @@ a:hover > .feature.boxed {
     right: 0;
     top: 0;
     z-index: 0;
-    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.65) 75%);
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.65) 75%
+    );
 }
 .feature-s5 .feature:hover .fbox-photo:after,
 .feature-s5 .feature:focus .fbox-photo:after {
@@ -4004,10 +4038,18 @@ a:hover > .feature.boxed {
     color: #747d88;
 }
 .feature-s5 .feature.bg-primary .fbox-photo:after {
-    background: linear-gradient(to bottom, rgba(0, 151, 80, 0) 0%, rgba(0, 151, 80, 0.65) 75%);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 151, 80, 0) 0%,
+        rgba(0, 151, 80, 0.65) 75%
+    );
 }
 .feature-s5 .feature.bg-secondary .fbox-photo:after {
-    background: linear-gradient(to bottom, rgba(234, 165, 21, 0) 0%, rgba(234, 165, 21, 0.65) 75%);
+    background: linear-gradient(
+        to bottom,
+        rgba(234, 165, 21, 0) 0%,
+        rgba(234, 165, 21, 0.65) 75%
+    );
 }
 .feature-album h3,
 .feature-album h4 {
@@ -4142,10 +4184,18 @@ a:hover > .feature.boxed {
     top: 0;
 }
 .cards-dark:after {
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 90%);
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.75) 0%,
+        rgba(255, 255, 255, 0) 90%
+    );
 }
 .cards-light:after {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, transparent 90%);
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.6) 0%,
+        transparent 90%
+    );
 }
 .cards-light .heading-sm-lead,
 .cards-light .heading-md-lead,
@@ -4169,10 +4219,18 @@ a:hover > .feature.boxed {
     font-size: 0.875em;
 }
 .cards-v2.cards-light:after {
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.75) 0%, transparent 90%);
+    background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, 0.75) 0%,
+        transparent 90%
+    );
 }
 .cards-v2.cards-dark:after {
-    background: linear-gradient(to left, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 90%);
+    background: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0.75) 0%,
+        rgba(255, 255, 255, 0) 90%
+    );
 }
 .cards-v2 .cards-text {
     right: 0;
@@ -4474,7 +4532,11 @@ div[class*="wide-"] + .gallery-filled {
     width: 100%;
     height: 80px;
     z-index: 0;
-    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
     -ms-border-radius: inherit;
     border-radius: inherit;
 }
@@ -4514,7 +4576,11 @@ div[class*="wide-"] + .gallery-filled {
     color: #0d0d0d;
 }
 .gallery-item-caption.dark:after {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 100%);
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.7) 100%
+    );
 }
 .gallery-item-caption.dark .item-cat {
     background: rgba(255, 255, 255, 0.3);
@@ -5743,10 +5809,22 @@ div[class*="filtered-menu"].style-v2 li:last-child {
         width: 50%;
         margin: 10px 0;
     }
-    .logos-lists.logos-lists-flat .row:last-child .col-sm-3:nth-child(1) .logo-item,
-    .logos-lists.logos-lists-flat .row:last-child .col-sm-3:nth-child(2) .logo-item,
-    .logos-lists.logos-lists-flat .row:last-child .col-md-3:nth-child(1) .logo-item,
-    .logos-lists.logos-lists-flat .row:last-child .col-md-3:nth-child(2) .logo-item {
+    .logos-lists.logos-lists-flat
+        .row:last-child
+        .col-sm-3:nth-child(1)
+        .logo-item,
+    .logos-lists.logos-lists-flat
+        .row:last-child
+        .col-sm-3:nth-child(2)
+        .logo-item,
+    .logos-lists.logos-lists-flat
+        .row:last-child
+        .col-md-3:nth-child(1)
+        .logo-item,
+    .logos-lists.logos-lists-flat
+        .row:last-child
+        .col-md-3:nth-child(2)
+        .logo-item {
         border-bottom-color: rgba(0, 0, 0, 0.08);
     }
     .logos-lists.logos-lists-flat .col-sm-3,

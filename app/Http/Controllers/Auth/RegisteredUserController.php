@@ -39,6 +39,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -51,4 +52,25 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+    public function newuser(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string'],
+        ]);
+        // return $request;
+        $password = Hash::make($request->password);
+
+        $newuser = new User;
+        $newuser->name = $request->name;
+        $newuser->email = $request->email;
+        $newuser->password = $password;
+
+        $newuser->save();
+
+        return back()->with('success', 'New User Added Successfully');
+    }
+    
 }

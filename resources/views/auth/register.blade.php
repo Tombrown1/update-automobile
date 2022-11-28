@@ -1,59 +1,41 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/" class="d-flex justify-content-center mb-4">
-                <x-application-logo width=64 height=64 />
-            </a>
-        </x-slot>
+<!DOCTYPE html>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+  <title> Register  </title>
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="icon" type="image/png" href="{{ asset('backend/favicon.ico') }}">
 
-                <x-input id="name" class="" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/assets/css/signup_style.css') }}">
+  <!-- Google Font: Source Sans Pro -->
 
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+</head>
+  <body>
+     <div class="sign-up-form">
+        <img src="{{asset('images/logo3.png')}}" alt="">
+        <h3>Sign Up Now</h3>
+            <form action="{{url('/register')}}" method="post">
+                @csrf
+                <input type="text" class="input-box" name="name" placeholder="Names">
+                <input type="email" class="input-box" name="email" placeholder="Email">
+                <input type="password" class="input-box" name="password" placeholder="Password">
+                <input type="password" class="input-box" name="password_confirmation" placeholder="Confirm Password">
+                <p> <span><input type="checkbox"></span> I agree to the terms of service</p>
+                <!-- <button type="button" class="signup-btn">Sign Up</button> -->
+                <!-- <hr>
+                <p class="or">OR</p> -->
+                <button type="submit" class="login-btn">Register</button>
+                <p>Do have an account ? <a href="{{route('login')}}">Sign in</a></p>
+            </form>
+     </div>
 
-                <x-input id="email" class="" type="email" name="email" :value="old('email')" required />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class=""
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class=""
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="d-flex justify-content-end mt-4">
-                <a class="text-muted" href="{{ route('login') }}" style="margin-right: 15px; margin-top: 15px;">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+  </body>
+</html>

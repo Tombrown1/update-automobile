@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
   <!--Custome-->
-  <link rel="icon" type="image/png" href="{{ asset('backend/favicon/favicon.ico') }}">
+  <link rel="icon" type="image/png" href="{{ asset('backend/favicon.ico') }}">
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="{{ asset('backend/css/bootstrap-datetimepicker.min.css') }}">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">

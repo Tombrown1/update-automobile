@@ -1,36 +1,44 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/" class="d-flex justify-content-center mb-4">
-                <x-application-logo width=64 height=64 />
-            </a>
-        </x-slot>
+<!DOCTYPE html>
 
-        <div class="mb-4 text-muted">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-        </div>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+  <title> Login  </title>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="{{ asset('backend/plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="icon" type="image/png" href="{{ asset('backend/favicon.ico') }}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/assets/css/signup_style.css') }}">
+  <!-- Google Font: Source Sans Pro -->
 
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
+</head>
+  <body>
+     <div class="sign-up-form">
+        <img src="{{asset('images/logo3.png')}}" alt="">
+        <h3>Reset Password</h3>
+            <form action="{{route('password.email')}}" method="post">
+                @csrf
+                @if(session('status')) 
+                    <div class="alert alert-success">
+                        {{session('status')}}
+                    </div>
+                @endif
+                <input type="email" class="input-box" name="email" placeholder="Enter Your Email">
+                <span class="text-danger">@error('email'){{$message}}@enderror</span>
+                <!-- <p> <span><input type="checkbox"></span> I agree to the terms of service</p> -->
+                <!-- <button type="button" class="signup-btn">Sign Up</button> -->
+                <!-- <hr>
+                <p class="or">OR</p> -->
+              
+                <button type="submit" class="login-btn">Send Password Link </button> 
+              
+            </form>
+     </div>
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="d-flex justify-content-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+  </body>
+</html>
