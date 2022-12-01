@@ -6,6 +6,9 @@ use App\Models\User;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\UserEmail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class SettingsController extends Controller
@@ -89,5 +92,35 @@ class SettingsController extends Controller
       return back()->with('success', 'Logo Uploaded Successfully!');
     }
 
+    public function sendMail($user)
+    {
+         $emailContent = [
+            'name' => $user->name,
+            'email' => $user->email,
+            'message' => 'anything'
+         ];
+
+         Mail::to($emailContent['email'])
+         ->send(new UserEmail($emailContent));
+    }
+
+
+   public function sendemail()
+    {
+         $emailContent = [
+            'name' => 'Tombrown Godwin',
+            'email' => 'godwintombrown@gmail.com',
+            'message' => 'Hello Am just checking out this email function in laravel'
+         ];
+
+         $this->sendMail($emailContent);
+
+         // return (new UserEmail($emailContent));
+
+         Mail::to($emailContent['email'])
+         ->send(new UserEmail($emailContent));
+    }
+
+    
    
 }

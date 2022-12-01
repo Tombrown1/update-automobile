@@ -47,6 +47,9 @@ Route::get('/past-president/{slug}', [PagesController::class, 'view_past_preside
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
+// MAiling Route
+Route::get('/send-email', [SettingsController::class, 'sendemail'])->name('send.email');
+
 
 
 require __DIR__.'/auth.php';
@@ -71,6 +74,7 @@ Route::group(['prefix' => 'admin', 'middleware'], function ()
     // Slider Route
     Route::get('/slider', [SliderController::class, 'index'])->name('slider');
     Route::post('/create-slider', [SliderController::class, 'createSlider'])->name('add.slider');
+    Route::post('/update-slider/{id}', [SliderController::class, 'editSlider'])->name('update.slider');
     Route::post('/del-slider/{id}', [SliderController::class, 'deleteSlider'])->name('del.slider');
 
      // Blog Route

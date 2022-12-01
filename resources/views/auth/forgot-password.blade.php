@@ -29,11 +29,7 @@
                     </div>
                 @endif
                 <input type="email" class="input-box" name="email" placeholder="Enter Your Email">
-                <span class="text-danger">@error('email'){{$message}}@enderror</span>
-                <!-- <p> <span><input type="checkbox"></span> I agree to the terms of service</p> -->
-                <!-- <button type="button" class="signup-btn">Sign Up</button> -->
-                <!-- <hr>
-                <p class="or">OR</p> -->
+                <span class="text-danger">@error('email'){{$message}}@enderror</span>                
               
                 <button type="submit" class="login-btn">Send Password Link </button> 
               

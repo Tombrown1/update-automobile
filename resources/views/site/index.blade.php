@@ -61,7 +61,7 @@
 @endsection
 
 	<!-- Service Section -->
-	<div class="section section-services">
+	<div class="section section-services" style="margin-top: -220px;">
 	    <div class="container">
 	        <div class="content row">
 				<!-- Feature Row  -->

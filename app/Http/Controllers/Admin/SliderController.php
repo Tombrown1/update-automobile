@@ -44,6 +44,34 @@ class SliderController extends Controller
         return back()->with('success', 'Slider Added Successfully!');
     }
 
+     public function editSlider(Request $request, $id)
+    {
+        $this->validate($request, [
+            'description' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+        ]);
+
+        // return $request;
+
+        // $slug = Str::slug($request->name, '-');
+
+
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $image = Storage::disk('public')->putFile('sliders', $file);
+        } 
+
+        $updateslider = Slider::find($id);
+        $updateslider->image = $image;
+        $updateslider->description = $request->description;
+
+        // return $updateslider;
+
+        $updateslider->save();
+
+        return back()->with('success', 'Slider Updated Successfully!');
+    }
+
     public function deleteSlider($id)
     {
         // return $id;
