@@ -9,6 +9,8 @@ use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Models\ServiceSectionCategory;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 
 class ServiceController extends Controller
 {
@@ -81,25 +83,40 @@ class ServiceController extends Controller
             'name' => 'required|string',
             'service_cat_id' => 'required|integer',
             'description' => 'required|string',
-            'image' => 'required|image|mimes:jpeg, jpg, png, gif, svg, pdf|max:2048',
         ]);
 
-        if($request->file('image')){
+        $checkforUpdatedImage = $request->hasFile('image');
+        $update_service = Service::find($id);
+        $slug = Str::slug($request->name, '-');
+        
+        if($checkforUpdatedImage){
+            if($request->file('image')){
+            $request->validate([
+            'image' => 'required|image|mimes:jpeg, jpg, png, gif, svg, pdf|max:2048',
+            ]);
+            $image_Path = public_path('storage/'.$update_service->image);
+            if(File::exists($image_Path)){
+                File::delete($image_Path);
+            }
             $file = $request->file('image');
             $image = Storage::disk('public')->putFile('Services', $file);
         }
 
-        $slug = Str::slug($request->name, '-');
-
-        $update_service = Service::find($id);
         $update_service->service_cat_id = $request->service_cat_id;
         $update_service->name = $request->name;
         $update_service->description = $request->description;
         $update_service->image = $image;
         $update_service->slug = $slug;
 
+        }else{
+        $update_service->service_cat_id = $request->service_cat_id;
+        $update_service->name = $request->name;
+        $update_service->description = $request->description;
+        $update_service->slug = $slug;
+        }
+        
         // return $update_service;
-
+        
         $update_service->save();
 
         // Process the Service Section Category Table;

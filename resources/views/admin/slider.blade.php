@@ -96,10 +96,10 @@
                       <form method="post" class="profile-wrapper" enctype="multipart/form-data" action="{{route('update.slider', ['id' =>$slider->id])}}" >
                           {{ csrf_field() }}
                             
-                            
+                            <input type="hidden" name="old_image" value="{{$slider->image}}">
                             <div class="form-group">
                                 <label for="fname">Image</label>
-                                <input class="form-control" type="file" name="image" required autofocus>  
+                                <input class="form-control" type="file"name="image">  
                             </div> 
                             <div class="mb-3">
                               <img src="{{asset('storage/'.$slider->image)}}" width="70" class="thumbnail">

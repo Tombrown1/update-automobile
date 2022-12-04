@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\PastPresident;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class PastPresidentController extends Controller
 {
@@ -59,14 +60,22 @@ class PastPresidentController extends Controller
             'end_date' => 'required|string',
         ]);
 
-        if($request->file('image')){
+        $checkforImageUpdate = $request->hasFile('image');
+        $edit_past_president = PastPresident::find($id);
+        $slug = Str::slug($request->name, '-');
+
+        if($checkforImageUpdate){
+            if($request->file('image')){
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,jpg,pdf,png,gif,svg|max:4096',               
+            ]);
+             $imagePath = public_path('storage/'.$edit_past_president->image);
+            if(File::exists($imagePath)){
+                File::delete($imagePath);
+            }
             $file = $request->file('image');
             $image = Storage::disk('public')->putFile('PastPresident', $file);
         }
-
-        $slug = Str::slug($request->name, '-');
-
-        $edit_past_president = PastPresident::find($id);
 
         $edit_past_president->name = $request->name;
         $edit_past_president->slug = $slug;
@@ -74,6 +83,14 @@ class PastPresidentController extends Controller
         $edit_past_president->description = $request->desc;
         $edit_past_president->start_date = $request->start_date;
         $edit_past_president->end_date = $request->end_date;
+
+        }else{
+        $edit_past_president->name = $request->name;
+        $edit_past_president->slug = $slug;
+        $edit_past_president->description = $request->desc;
+        $edit_past_president->start_date = $request->start_date;
+        $edit_past_president->end_date = $request->end_date;
+        }
 
         $edit_past_president->save();
 

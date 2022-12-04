@@ -10,6 +10,8 @@ use App\Models\BlogPost;
 use App\Models\BlogPostCategory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 
 class BlogController extends Controller
 {
@@ -90,27 +92,47 @@ class BlogController extends Controller
             'title' => 'required|string',
             'blog_cat_id' => 'required|integer',
             'description' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            
 
         ]);
 
-        // return $request;
-
-        if($request->file('image')){
-            $file = $request->file('image');
-            $featured_image = Storage::disk('public')->putFile('blog', $file);
-        }
-
+        $check_blog_Img = $request->hasFile('image');
+        $updateblogpost = BlogPost::find($id);
+        $img_update = null; 
+        
         $slug = Str::slug($request->title, '-');
         $author = Auth::id();
 
-        $updateblogpost = BlogPost::find($id);
+        // return $request;
+
+        if($check_blog_Img){
+            if($request->file('image')){
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            ]);
+           $image_Path = public_path('storage/'.$updateblogpost->featured_image);
+           if(FIle::exists($image_Path)){
+            File::delete($image_Path);
+           }
+            $file = $request->file('image');
+            $featured_image = Storage::disk('public')->putFile('blog', $file);
+        }       
+
         $updateblogpost->blog_cat_id = $request->blog_cat_id;
         $updateblogpost->title = $request->title;
         $updateblogpost->author = $author;
         $updateblogpost->slug = $slug;
         $updateblogpost->featured_image = $featured_image;
         $updateblogpost->description = $request->description;
+
+        }else{
+        $updateblogpost->blog_cat_id = $request->blog_cat_id;
+        $updateblogpost->title = $request->title;
+        $updateblogpost->author = $author;
+        $updateblogpost->slug = $slug;
+        // $updateblogpost->featured_image = $featured_image;
+        $updateblogpost->description = $request->description;
+        }
 
         $updateblogpost->save();
 

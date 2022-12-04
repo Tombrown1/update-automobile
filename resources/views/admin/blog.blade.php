@@ -56,7 +56,7 @@
                                 <td>{{$loop->index +1}}</td>
                                 <td><a href="#">{{$blogpost->title}}</a></td>
                                 <td><img src="{{asset('storage/'.$blogpost->featured_image)}}" width="70" class="thumbnail"></td>
-                                <td>{{$blogpost->created_at}}</td>
+                                <td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($blogpost->created_at))->toFormattedDateString() }}</td>
                                 <td>
                                     <form action="#" method="post">
                                         <a class="btn btn-primary btn-sm" href="{{route('edit.blog.post', ['id'=> $blogpost->id])}}"><i class="fa fa-edit"></i></a>

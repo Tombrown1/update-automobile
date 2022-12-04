@@ -9,6 +9,8 @@ use App\Models\About;
 use App\Models\AboutCategory;
 use App\Models\AboutSectionCategory;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 
 use function PHPUnit\Framework\returnSelf;
 
@@ -83,22 +85,38 @@ class AboutController extends Controller
             'name' => 'required|string',
             'description' => 'required|string',
             'about_cat_id' => 'required|integer',
-            'image' => 'required|image|mimes:jpeg, jpg, png, gif, svg, pdf|max:2048',
         ]);
-
+        
         // @Tomc963
-
-        if($request->file('image')){
+        $checkforUpdateImage = $request->hasFile('image');
+        $update_about = About::find($id);
+        $image_update = null;
+        $slug = Str::slug($request->name, '-');
+        
+        
+        if($checkforUpdateImage){
+             if($request->file('image')){
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg, jpg, png, gif, svg, pdf|max:2048',
+            ]);
+            $image_Path = public_path('storage/'.$update_about->image);
+            if(File::exists($image_Path)){
+                File::delete($image_Path);
+            }
             $file = $request->file('image');
             $image = Storage::disk('public')->putFile('About', $file);
         }
-        $slug = Str::slug($request->name, '-');
 
-        $update_about = About::find($id);
         $update_about->name = $request->name;
         $update_about->description = $request->description;
         $update_about->image = $image;
         $update_about->slug = $slug;
+        
+        }else{
+        $update_about->name = $request->name;
+        $update_about->description = $request->description;
+        $update_about->slug = $slug;
+        }
         // return $update_about;
         $update_about->save();
 

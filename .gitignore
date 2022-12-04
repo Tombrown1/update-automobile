@@ -4,7 +4,7 @@
 # /public/images
 /public/frontend/assets/image
 /public/backend/assets/img
-# /storage/*.key
+/storage/*.key
 /vendor
 .env
 .env.backup

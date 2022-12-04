@@ -136,7 +136,7 @@
                                         </div> 
                                         <div class="form-group">
                                             <label for="fname">Image</label>
-                                            <input class="form-control" type="file" name="image" required autofocus>  
+                                            <input class="form-control" type="file" name="image" autofocus>  
                                         </div> 
                                         <div class="form-group">
                                             <img class="img-thumbnail" src="{{asset('storage/'.$clubsection->file_path)}}" width="70">

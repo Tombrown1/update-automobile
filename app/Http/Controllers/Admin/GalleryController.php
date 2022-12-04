@@ -9,6 +9,8 @@ use App\Models\GalleryCategory;
 use App\Models\GalleryPost;
 use App\Models\GalleryPostCategory;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 
 class GalleryController extends Controller
 {
@@ -31,7 +33,7 @@ class GalleryController extends Controller
             'name' => 'required|string|max:250',
             'description' => 'required|string',
             'gallery_cat_id' => 'required|integer',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
 
         ]);
 
@@ -70,26 +72,37 @@ class GalleryController extends Controller
             'name' => 'required|string|max:250',
             'description' => 'required|string',
             'gallery_cat_id' => 'required|integer',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
         ]);
 
-        // return $request;
-
+        $checkforUpdateImage = $request->hasFile('image');
+        $updateGallery = GalleryPost::find($id);
         $slug = Str::slug($request->name, '-');
-
-
-        if ($request->file('image')) {
+        
+        if($checkforUpdateImage){
+            if ($request->file('image')) {
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+            ]);
+            $image_Path = public_path('storage/'.$updateGallery->image);
+            if(File::exists($image_Path)){
+                File::delete($image_Path);
+            }
             $file = $request->file('image');
             $image = Storage::disk('public')->putFile('gallery', $file);
         } 
 
-        $updateGallery = GalleryPost::find($id);
         $updateGallery->gallery_cat_id = $request->gallery_cat_id;
         $updateGallery->name = $request->name;
         $updateGallery->file_path = $image;
         $updateGallery->description = $request->description;
         $updateGallery->slug = $slug;
+
+        }else{
+        $updateGallery->gallery_cat_id = $request->gallery_cat_id;
+        $updateGallery->name = $request->name;
+        $updateGallery->description = $request->description;
+        $updateGallery->slug = $slug;
+        }
 
         $updateGallery->save();
 

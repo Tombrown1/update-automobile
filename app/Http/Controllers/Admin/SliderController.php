@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Slider;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Slider;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class SliderController extends Controller
@@ -48,23 +49,34 @@ class SliderController extends Controller
     {
         $this->validate($request, [
             'description' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ]);
 
-        // return $request;
-
-        // $slug = Str::slug($request->name, '-');
-
-
-        if ($request->file('image')) {
-            $file = $request->file('image');
-            $image = Storage::disk('public')->putFile('sliders', $file);
-        } 
-
+        $checkImage = $request->hasFile('image');        
         $updateslider = Slider::find($id);
-        $updateslider->image = $image;
-        $updateslider->description = $request->description;
+        $img_update = null;
 
+        if($checkImage){
+            if ($request->hasFile('image')) {
+            $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+            ]);
+            $imagePath = public_path('storage/'.$updateslider->image);
+            // return $imagePath;
+            if(File::exists($imagePath)){
+                // unlink($imagePath);
+                File::delete($imagePath);
+            }
+            
+            $file = $request->file('image');            
+            $img_update = Storage::disk('public')->putFile('sliders', $file);
+        } 
+       
+        $updateslider->image = $img_update;
+        $updateslider->description = $request->description;
+        
+        }else{
+            $updateslider->description = $request->description;
+        }
         // return $updateslider;
 
         $updateslider->save();

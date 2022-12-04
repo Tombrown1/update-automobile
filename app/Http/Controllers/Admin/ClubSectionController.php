@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\ClubSectionCategory;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 
 class ClubSectionController extends Controller
 {
@@ -69,32 +71,40 @@ class ClubSectionController extends Controller
         $this->validate($request, [
             'name' => 'required|string',
             'club_category_id' => 'required|integer',
-            'image' => 'required|image|mimes:jpeg,jpg,pdf,png,gif,svg|max:2048',
             'description' => 'required|string',
         ]);
-
-        if($request->file('image')){
-           $file = $request->file('image');
-            $file_path = Storage::disk('public')->putFile('Club', $file);
-        }
-
-        // Validate the club section if it exist before deleting using $id;
-        // $checkifClubSectionExist = ClubSection::where('deleted', 0)->first();
-        // return $checkifClubSectionExist;
-        // if(!is_null($checkifClubSectionExist)){
-        //     return back()->with('errors', 'Please this Club Section does not exist');
-        // }
-
-
-       
-        $slug = Str::slug($request->name, '-');
-
+        
+        $checkforImageUpdate = $request->hasFile('image');
         $editClub = ClubSection::find($id);
+        $slug = Str::slug($request->name, '-');
+        
+        if($checkforImageUpdate){
+            if($request->file('image')){
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,jpg,pdf,png,gif,svg|max:4096',               
+            ]);
+            $imagePath = public_path('storage/'.$editClub->file_path);
+            // return $imagePath;
+            if(File::exists($imagePath)){
+                // unlink($imagePath);
+                File::delete($imagePath);
+            }
+           $file = $request->file('image');
+           $file_path = Storage::disk('public')->putFile('Club', $file);
+        }      
+
         $editClub->club_category_id = $request->club_category_id;
         $editClub->name = $request->name;
         $editClub->file_path = $file_path;
         $editClub->description = $request->description;
         $editClub->slug = $slug;
+
+        }else{
+        $editClub->club_category_id = $request->club_category_id;
+        $editClub->name = $request->name;
+        $editClub->description = $request->description;
+        $editClub->slug = $slug;
+        }
 
         // return $editClub;
         $editClub->save();

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Board;
 use App\Models\BoardCategory;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class BoardController extends Controller
 {
@@ -75,26 +76,43 @@ class BoardController extends Controller
             'post' => 'required|string',
             'description' => 'required|string',
         ]);
-        $image = null;
-        if(!is_null($request->file('image')))
+        $checkforImageUpdate = $request->hasFile('image');
+        $updateboard = Board::find($id);
+        $slug = Str::slug($request->name, '-');
+
+        if($checkforImageUpdate){
+            if(!is_null($request->file('image')))
         {
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,jpg,png,gif,pdf,svg|max:4096 '
+            ]);
+            $imagePath = public_path('storage/'.$updateboard->image);
+            if(File::exists($imagePath)){
+                File::delete($imagePath);
+            }
             $file = $request->file('image');
             $image = Storage::disk('public')->putFile('Boards', $file);
         }
 
-        $slug = Str::slug($request->name, '-');
         // Add Board
-        $updateboard = Board::find($id);
-        $updateboard->board_cat_id = $request->cat_id;
-        $updateboard->name = $request->name;
-        $updateboard->post = $request->post;
-        $updateboard->description = $request->description;
-        $updateboard->slug = $slug;
-        $updateboard->image = $image;
+            $updateboard->board_cat_id = $request->cat_id;
+            $updateboard->name = $request->name;
+            $updateboard->post = $request->post;
+            $updateboard->description = $request->description;
+            $updateboard->slug = $slug;
+            $updateboard->image = $image;
 
+            }else{
+            $updateboard->board_cat_id = $request->cat_id;
+            $updateboard->name = $request->name;
+            $updateboard->post = $request->post;
+            $updateboard->description = $request->description;
+            $updateboard->slug = $slug;
 
-        $updateboard->save();
-        return back()->with('success', 'Board Created Successfully!');
+            }
+
+            $updateboard->save();
+            return back()->with('success', 'Board Created Successfully!');
         
     }
 

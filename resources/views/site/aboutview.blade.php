@@ -10,8 +10,7 @@
 					<div class="content row">
 					
 						<div class="banner-text">
-							<h1 class="page-title">{{$about->name}}</h1>
-							<p>{!!substr(nl2br($about->description),0, 130)!!}.</p>					
+							<h1 class="page-title">{{$about->name}}</h1>											
 						</div>
 						<div class="page-breadcrumb">
 							<ul class="breadcrumb">
