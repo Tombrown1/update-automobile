@@ -38,8 +38,12 @@
                   </div>
                   <div class="col-md-10 col-sm-12 col-xs-12">
                     <div class="form-group">
-                      <label for="disabledSelect">Enter Title</label>
+                      <label for="disabledSelect">Title</label>
                       <input class="form-control" type="text" name="name" Required/>
+                    </div>
+                    <div class="form-group">
+                      <label for="disabledSelect">Sub Title</label>
+                      <input class="form-control" type="text" name="sub_title" Required/>
                     </div>
                     <div class="form-group">
                       <label for="disabledSelect">Select Category</label>

@@ -1,18 +1,20 @@
 <?php
 
-use App\Http\Controllers\Admin\AboutController;
-use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\BoardController;
-use App\Http\Controllers\Admin\ClubSectionController;
-use App\Http\Controllers\Admin\ContactController;
-use App\Http\Controllers\Admin\GalleryController;
-use App\Http\Controllers\Admin\PastPresidentController;
-use App\Http\Controllers\Admin\ServiceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\PagesController;
-use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BoardController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\UploadController;
+use App\Http\Controllers\Admin\BookingController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\GalleryController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingsController;
+use App\Http\Controllers\Admin\ClubSectionController;
+use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\PastPresidentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +33,7 @@ Route::get('/', [PagesController::class, 'index'])->name('home');
 Route::get('/about', [PagesController::class, 'about'])->name('about');
 Route::get('/about-view/{slug}', [PagesController::class, 'aboutview'])->name('about.view');
 
-Route::get('/services', [PagesController::class, 'services'])->name('services');
+Route::get('/services/', [PagesController::class, 'services'])->name('service');
 Route::get('/view-services/{slug}', [PagesController::class, 'viewServices'])->name('view.services');
 
 Route::get('/news-events', [PagesController::class, 'news_event'])->name('news.events');
@@ -46,10 +48,13 @@ Route::get('/past-president', [PagesController::class, 'past_president'])->name(
 Route::get('/past-president/{slug}', [PagesController::class, 'view_past_president'])->name('view.past.president');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-
+Route::get('/booking', [PagesController::class, 'booking'])->name('booking');
+Route::get('/team', [PagesController::class, 'technician'])->name('team');
+Route::get('/testimonial', [PagesController::class, 'testimonial'])->name('testimonial');
 // MAiling Route
 Route::get('/send-email', [SettingsController::class, 'sendemail'])->name('send.email');
 
+Route::post('/booking-service', [BookingController::class, 'addBooking'])->name('booking.service');
 
 
 require __DIR__.'/auth.php';
@@ -59,6 +64,7 @@ require __DIR__.'/auth.php';
 Route::group(['prefix' => 'admin', 'middleware'], function () 
 {    
     Route::get('/dashboard', [SettingsController::class, 'index'])->name('dashboard');
+
     Route::post('/update-setting', [SettingsController::class, 'updateSetting'])->name('update.setting');
     Route::post('/about-setting', [SettingsController::class, 'aboutsetting'])->name('about.setting');
     Route::post('/upload-logo', [SettingsController::class, 'logoUpload'])->name('upload.logo');
@@ -118,6 +124,9 @@ Route::group(['prefix' => 'admin', 'middleware'], function ()
      Route::post('/del-about-category/{id}', [AboutController::class, 'delete_about_category'])->name('del.about.category');
     Route::post('/delete-about-section/{id}', [AboutController::class, 'delete_about'])->name('del.about.section');
 
+    // Booking Route
+    Route::get('/all-booking', [BookingController::class, 'index'])->name('all.booking');
+    Route::post('/delete-booking-entry/{id}', [BookingController::class, 'destroy'])->name('delete.booking');
 
     // Contact Route
     Route::post('/send-contact', [ContactController::class, 'contact'])->name('send.contact');
@@ -146,4 +155,12 @@ Route::group(['prefix' => 'admin', 'middleware'], function ()
     Route::post('/create-past-president', [PastPresidentController::class, 'create_past_president'])->name('create.past.president');
     Route::post('/edit-past-president/{id}', [PastPresidentController::class, 'edit_past_president'])->name('edit.past.president');
     Route::post('/delete-past-president/{id}', [PastPresidentController::class, 'delete_past_president'])->name('delete.past.president');
+
+    // Testimonial Route
+    Route::get('/admin-testimonial', [TestimonialController::class, 'index'])->name('admin.testimonial');
+    Route::get('/add-testimonial', [TestimonialController::class, 'add_testimonial'])->name('add.testimonial');
+    Route::post('/create-testimonial', [TestimonialController::class, 'create'])->name('create.testimonial');
+    Route::get('/edit-testimonial/{id}', [TestimonialController::class, 'edit'])->name('edit.testimonial');
+    Route::post('/update-testimonial/{id}', [TestimonialController::class, 'update'])->name('update.testimonial');
+    Route::post('/delete-testimonial/{id}', [TestimonialController::class, 'destroy'])->name('delete.testimonial');
 });

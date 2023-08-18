@@ -120,6 +120,10 @@
                         <label>Core Value</label>
                         <textarea name="core_value" class="form-control">{{ $setting->core_value }}</textarea>
                       </div>
+                      <div class="form-group">
+                        <label>About Image</label>
+                       <input type="file", name="about_image" class="form-control" value="{{$setting->about_image}}">
+                      </div>
 
                       <div class="form-group">
                           <label>About Us</label>

@@ -1,52 +1,39 @@
-	<!-- Banner/Slider -->
-		<div id="slider" class="banner banner-slider slider-large carousel slide carousel-fade">
-			<!-- Wrapper for Slides -->
-			@foreach($sliders as $slider)
-			<div class="carousel-inner">
-				<div class="item active" >
-					<!-- Set the first background image using inline CSS below. -->
-					<!-- <div class="fill" style="background-image:url('frontend/assets/image/slider-lg-a.jpg');"> -->
-					<div class="fill" style="background-image:url({{asset('storage/'.$slider)}});">
-						<div class="banner-content">
-							<div class="container">
-								<div class="row">
-									<div class="banner-text al-left pos-left light">
-										<h2>Fit your life and budget<strong>.</strong></h2>
-										<p>We provide independent advice based on established research methods, and our experts have in-depth sector knowledge.</p>
-										<a href="#" class="btn">Learn more</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- <div class="item"> -->
-					<!-- Set the second background image using inline CSS below. -->
-					<!-- <div class="fill" style="background-image:url('frontend/assets/image/slider-lg-b.jpg');">
-						<div class="banner-content">
-							<div class="container">
-								<div class="row">
-									<div class="banner-text al-left pos-left light">
-										<h2>Expert Financial Advice<strong>.</strong></h2>
-										<p>We help clients find ways to turn into actionable insights by embedding economics across their organization’s strategy.</p>
-										<a href="#" class="btn">Learn more</a>
-									</div>
-								</div>
-							</div>
-						</div>					
-					</div>
-				</div> -->
-			</div>
-			@endforeach
-			<!-- Left and right controls -->
-			<a class="left carousel-control" href="#slider" role="button" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="right carousel-control" href="#slider" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-		<!-- #end Banner/Slider -->
+ <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        
+            <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @forelse($sliders as $key => $slider)
+                    <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                        <img class="w-100" src="{{asset('storage/'.$slider->bgimage)}}" alt="Image">
+                        <div class="carousel-caption d-flex align-items-center">
+                            <div class="container">
+                                <div class="row align-items-center justify-content-center justify-content-lg-start">
+                                    <div class="col-10 col-lg-7 text-center text-lg-start">
+                                        <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Car Servicing //</h6>
+                                        <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Qualified Car Repair Service Center</h1>
+                                        <a href="{{route('service')}}" class="btn btn-primary py-3 px-5 animated slideInDown">Learn More<i class="fa fa-arrow-right ms-3"></i></a>
+                                    </div>
+                                    <div class="col-lg-5 d-none d-lg-flex animated zoomIn">
+                                        <img class="img-fluid" src="{{asset('storage/'.$slider->image)}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @empty
+                    @endforelse
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"  data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+     
+    </div>
+    <!-- Carousel End -->

@@ -108,156 +108,13 @@
                 </a>
               </li>
 
-              <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fa fa-newspaper text-cyan"></i>
-                    <p>
-                     Gallerys
-                      <i class="right fa fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">                    
-                    
-                    <li class="nav-item">
-                      <a href="{{route('gallery')}}" class="nav-link ml-3">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>All Gallery</p>
-                      </a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a href="{{route('gallery.category')}}" class="nav-link ml-3">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Gallery Category</p>
-                      </a>
-                    </li>
-
-                    <!--<li class="nav-item">
-                      <a href="{{ url('/admin/blog/tag') }}" class="nav-link ml-3">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Tags</p>
-                      </a>
-                    </li>-->
-
-                  </ul>
-              </li>
-            
-              <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fa fa-newspaper text-cyan"></i>
-                    <p>
-                      Blog
-                      <i class="right fa fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                      <a href="{{route('blog')}}" class="nav-link ml-3">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>All Posts</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="{{route('create.post')}}" class="nav-link ml-3">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Create Posts</p> 
-                      </a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a href="{{route('blog.category')}}" class="nav-link ml-3">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Categories</p>
-                      </a>
-                    </li>
-
-                    <!--<li class="nav-item">
-                      <a href="{{ url('/admin/blog/tag') }}" class="nav-link ml-3">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Tags</p>
-                      </a>
-                    </li>-->
-
-                  </ul>
-              </li>
-
-               <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fa fa-newspaper text-cyan"></i>
-                    <p>
-                     Club Section
-                      <i class="right fa fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">                    
-                    
-                    <li class="nav-item">
-                      <a href="{{route('club.section')}}" class="nav-link ml-3">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>All Section</p>
-                      </a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a href="{{route('club.section.category')}}" class="nav-link ml-3">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Section Category</p>
-                      </a>
-                    </li>
-
-                    <!--<li class="nav-item">
-                      <a href="{{ url('/admin/blog/tag') }}" class="nav-link ml-3">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Tags</p>
-                      </a>
-                    </li>-->
-
-                  </ul>
-              </li>
               
-
-              
-
-              <li class="nav-item has-treeview">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fa fa-newspaper text-cyan"></i>
-                    <p>
-                     Management Team 
-                      <i class="right fa fa-angle-left"></i>
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">                    
-                    
-                    <li class="nav-item">
-                      <a href="{{route('board')}}" class="nav-link ml-3">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Management Section</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="{{route('past.president')}}" class="nav-link ml-3">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Past President</p>
-                      </a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a href="{{route('board.category')}}" class="nav-link ml-3">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Management Category</p>
-                      </a>
-                    </li>
-
-                    <!--<li class="nav-item">
-                      <a href="{{ url('/admin/blog/tag') }}" class="nav-link ml-3">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Tags</p>
-                      </a>
-                    </li>-->
-
-                  </ul>
-              </li> 
-
+              <li class="nav-item">
+                <a href="{{route('admin.testimonial')}}" class="nav-link">
+                  <i class="nav-icon fa fa-bell text-purple"></i>
+                  <p>Testimonial</p>
+                </a>
+              </li>
              
               <li class="nav-item">
                 <a href="{{route('view.contact')}}" class="nav-link">
@@ -267,9 +124,9 @@
               </li>
               
               <li class="nav-item">
-                <a href="{{ route('uploads') }}" class="nav-link">
+                <a href="{{ route('all.booking') }}" class="nav-link">
                   <i class="nav-icon fa fa-cogs text-pink"></i>
-                  <p>Uploads</p>
+                  <p>Booking</p>
                 </a>
               </li>
 

@@ -56,14 +56,21 @@ class SettingsController extends Controller
     {
       $this->validate($request, [
         'about' => 'required|string',
+        'about_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:4080',
         'vision' => 'required|string',
         'mission' => 'required|string',
         'core_value' => 'required|string',
        ]); 
 
+       if($request->hasFile('about_image')){
+         $file = $request->hasFile('about_image');
+         $about_image = Storage::disk('public')->putFile('about', $file);
+       }
+
       //  return $request;
        $aboutsetting = Setting::find(1);
        $aboutsetting->about = $request->about;
+       $aboutsetting->about_image = $about_image;
        $aboutsetting->vision = $request->vision;
        $aboutsetting->mission = $request->mission;
        $aboutsetting->core_value = $request->core_value;

@@ -38,6 +38,7 @@ class ServiceController extends Controller
     {
         $this->validate($request,[
             'name' => 'required|string',
+            'sub_title' => 'nullable|string',
             'service_cat_id' => 'required|integer',
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpeg, jpg, png, gif, svg, pdf|max:2048',
@@ -53,6 +54,7 @@ class ServiceController extends Controller
         $create_service = new Service;
         $create_service->service_cat_id = $request->service_cat_id;
         $create_service->name = $request->name;
+        $create_service->sub_title = $request->sub_title;
         $create_service->description = $request->description;
         $create_service->image = $image;
         $create_service->slug = $slug;
@@ -81,6 +83,7 @@ class ServiceController extends Controller
     {
         $this->validate($request,[
             'name' => 'required|string',
+            'sub_title' => 'nullable|string',
             'service_cat_id' => 'required|integer',
             'description' => 'required|string',
         ]);
@@ -104,6 +107,7 @@ class ServiceController extends Controller
 
         $update_service->service_cat_id = $request->service_cat_id;
         $update_service->name = $request->name;
+        $update_service->sub_title = $request->sub_title;
         $update_service->description = $request->description;
         $update_service->image = $image;
         $update_service->slug = $slug;

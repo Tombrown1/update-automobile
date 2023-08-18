@@ -46,11 +46,14 @@
                       <form method="post" class="profile-wrapper" enctype="multipart/form-data" action="{{ route('add.slider') }}" >
                           {{ csrf_field() }}
                             
-                            
                             <div class="form-group">
-                                <label for="fname">Image</label>
-                                <input class="form-control" type="file" name="image" required autofocus>  
+                                <label for="bgimage">Background Image</label>
+                                <input class="form-control" type="file" name="bgimage" required autofocus>  
                             </div> 
+                            <div class="form-group">
+                                <label for="image">Image</label>
+                                <input class="form-control" type="file" name="image" required autofocus>  
+                            </div>                              
                             <div class="form-group mb-3">
                               <label for="descp">Description</label>
                               <textarea class="form-control" name="description" id="" cols="30" rows="3"></textarea>
@@ -71,6 +74,7 @@
                     <thead>
                       <tr>
                         <th>S/N</th>
+                        <th>Background Image</th>
                         <th>Featured Image</th>
                         <th>Description</th>
                         <th colspan="2">Action</th>
@@ -80,6 +84,7 @@
                         @forelse($sliders as $slider)
                         <tr>
                             <td>{{$loop->index +1}}</td>
+                            <th><img class="img-thumbnail" src="{{ asset('storage/'.$slider->bgimage) }}" width="70px"></th>
                             <th><img class="img-thumbnail" src="{{ asset('storage/'.$slider->image) }}" width="70px"></th>
                             <td>{{$slider->description}}</td>
                             <td><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editslider{{$slider->id}}"><i class="fa fa-edit"></i></button></td>                           
@@ -96,9 +101,16 @@
                       <form method="post" class="profile-wrapper" enctype="multipart/form-data" action="{{route('update.slider', ['id' =>$slider->id])}}" >
                           {{ csrf_field() }}
                             
-                            <input type="hidden" name="old_image" value="{{$slider->image}}">
+                            <input type="hidden" name="old_image" value="{{$slider->bgimage}}">
                             <div class="form-group">
-                                <label for="fname">Image</label>
+                                <label for="bgimage">Background Image</label>
+                                <input class="form-control" type="file"name="bgimage">  
+                            </div>  
+                            <div class="mb-3">
+                              <img src="{{asset('storage/'.$slider->bgimage)}}" width="70" class="thumbnail">
+                            </div> 
+                            <div class="form-group">
+                                <label for="image">Image</label>
                                 <input class="form-control" type="file"name="image">  
                             </div> 
                             <div class="mb-3">
